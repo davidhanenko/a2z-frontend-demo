@@ -5,11 +5,11 @@ export default function AboutPage (props) {
 
 }
   
-  export async function getStaticProps(props) {
-  let layout = 'main';
-  return {
-    props: {
-     layout
-    }
+  export async function getServerSideProps(props) {
+    let layout = 'main';
+    return {
+      props: {
+        layout,
+      },
+    };
   }
-}
