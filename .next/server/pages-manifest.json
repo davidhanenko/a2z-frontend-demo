@@ -1,5 +1,12 @@
 {
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
+  "/about": "pages/about.js",
+  "/": "pages/index.js",
+  "/products/[products]/[collection]/[single]": "pages/products/[products]/[collection]/[single].js",
+  "/products/[products]/[collection]": "pages/products/[products]/[collection].js",
+  "/products/[products]": "pages/products/[products].js",
+  "/products": "pages/products.js",
+  "/tools": "pages/tools.js",
   "/_error": "pages/_error.js"
 }
