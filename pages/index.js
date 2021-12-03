@@ -4,12 +4,12 @@ export default function MainPage(props) {
   return <Main />;
 }
 
-export async function getServerSideProps(props) {
-  let layout = 'main';
+// export async function getServerSideProps(props) {
+//   let layout = 'main';
 
-  return {
-    props: {
-      layout,
-    },
-  };
-}
+//   return {
+//     props: {
+//       layout,
+//     },
+//   };
+// }
