@@ -250,7 +250,7 @@ var external_next_with_apollo_default = /*#__PURE__*/__webpack_require__.n(exter
 // CONCATENATED MODULE: ./config.js
 // This is client side config only - don't put anything in here that shouldn't be public!
 const endpoint = 'http://localhost:1337/graphql';
-const prodEndpoint = process.env.NEXT_PUBLIC_API_URL || 'https://a2z-demo.herokuapp.com';
+const prodEndpoint = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:1337/graphql';
 const perPage = 4;
 // CONCATENATED MODULE: ./lib/withData.js
 
@@ -277,7 +277,7 @@ function createClient({
       if (networkError) console.log(`[Network error]: ${networkError}. Backend is unreachable. Is it running?`);
     }), // this uses apollo-link-http under the hood, so all the options here come from that package
     Object(external_apollo_upload_client_["createUploadLink"])({
-      uri: false ? undefined : 'http://localhost:1337/graphql',
+      uri: false ? undefined : prodEndpoint,
       fetchOptions: {
         credentials: 'include'
       },
