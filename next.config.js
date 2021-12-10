@@ -17,3 +17,14 @@ module.exports = withImages({
     domains: ['res.cloudinary.com'],
   },
 });
+
+module.exports = {
+  async rewrites() {
+    return [
+      {
+        source: 'https://a2z-frontend-demo.vercel.app',
+        destination: 'https://a2z-demo.herokuapp.com',
+      },
+    ];
+  },
+};
