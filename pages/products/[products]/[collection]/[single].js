@@ -11,10 +11,12 @@ const SINGLE_ITEM_QUERY = gql`
       item_title
       price
       description
-      size_prices(sort: "size:asc") {
-        id
-        size
-        price
+      size_prices: size_price {
+        ... on ComponentPricesSizePrice {
+          id
+          size
+          price
+        }
       }
       image {
         url
