@@ -1,9 +1,7 @@
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/client';
 
-
 import Items from '../../components/items/items-page/items/Items';
-
 
 const PRODUCTS_PAGE_QUERY = gql`
   query PRODUCTS_PAGE_QUERY($service: String) {

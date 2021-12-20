@@ -52,7 +52,7 @@ const SingleItemStyles = styled.div`
       padding: 1rem 2rem;
       border: none;
       background: var(--gray);
-      transition: all 0.3s;
+      transition: background 0.3s;
       cursor: pointer;
       &:hover {
         background: var(--blueHover);

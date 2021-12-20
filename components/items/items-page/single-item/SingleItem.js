@@ -11,6 +11,9 @@ export default function SingleItem({ singleItem }) {
   const [sizePrice, setSizePrise] = useState([...singleItem.size_prices]);
   const [index, setIndex] = useState(0);
 
+  // sort by prices, to show list of availiable sizes of item
+  sizePrice.sort((a, b) => a.price - b.price);
+
   // show price according to size of item(if apply)
   const handlePrice = e => {
     // find index of choosen size
@@ -44,10 +47,12 @@ export default function SingleItem({ singleItem }) {
 
         <h6 className='available-sizes'>Available sizes:</h6>
 
-        {singleItem.size_prices?.map((size, i) => (
+        {sizePrice.map((size, i) => (
           <input
             key={size.id}
-            className={i === index ? 'size-input-btn active-size-btn' : 'size-input-btn'}
+            className={
+              i === index ? 'size-input-btn active-size-btn' : 'size-input-btn'
+            }
             type='button'
             onClick={handlePrice}
             value={size.size}

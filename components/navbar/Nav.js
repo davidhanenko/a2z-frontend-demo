@@ -14,7 +14,7 @@ import Search from './Search';
 import { formatUrlToRoute } from '../../helpers/formatUrl';
 
 const PRODUCTS = gql`
-query PRODUCTS {
+  query PRODUCTS {
     services {
       service
       id
@@ -73,7 +73,7 @@ export default function Nav() {
 
   const router = useRouter();
 
-// link button
+  // link button
   const LinkBtn = React.forwardRef(({ href, title, page }, ref) => {
     return (
       <a
@@ -81,7 +81,7 @@ export default function Nav() {
         onClick={() => closeSideNav()}
         ref={ref}
         className={
-         router.asPath.split('/')[1] === page
+          router.asPath.split('/')[1] === page
             ? 'active-link link-item'
             : 'link-item'
         }
@@ -90,7 +90,6 @@ export default function Nav() {
       </a>
     );
   });
-
 
   return (
     <>
@@ -101,17 +100,10 @@ export default function Nav() {
         ref={navRef}
       >
         <div className='nav-links'>
-          <Link
-            href='/'
-            passHref
-          >
+          <Link href='/' passHref>
             <LinkBtn title={'home'} page={''} />
           </Link>
-          <Link
-            href='/about'
-            className='link-item'
-            passHref
-          >
+          <Link href='/about' className='link-item' passHref>
             <LinkBtn title={'about'} page={'about'} />
           </Link>
 

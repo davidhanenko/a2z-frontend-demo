@@ -29,14 +29,13 @@ export default function ProductsCategoryPage({ query }) {
   const { data, error, loading } = useQuery(ALL_PRODUCTS, {
     variables: {
       service: 'products',
-      itemsCategory: formatUrlToDbName(query.products)
+      itemsCategory: formatUrlToDbName(query.products),
     },
   });
 
-  
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
-  
+
   const items = data.services[0].items[0];
 
   return <ItemsByCategory items={items} />;
