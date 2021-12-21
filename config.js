@@ -3,5 +3,7 @@ export const endpoint = 'http://localhost:1337/graphql';
 export const prodEndpoint =
   `${process.env.NEXT_PUBLIC_API_URL}/graphql`;
 
+export const toggleWidth = 850; 
+
 // demo backend url
   // https://backend-a2z.herokuapp.com/graphql

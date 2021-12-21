@@ -30,12 +30,19 @@ export default function ProductsPage({ query }) {
     },
   });
 
+  const service = 'products';
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
   return (
     <>
-      <SubCategoryCollection itemsCollection={data?.items_category[0]} items={query.products} collection={query.collection}/>
+      <SubCategoryCollection
+        itemsCollection={data?.items_category[0]}
+        items={query.products}
+        collection={query.collection}
+        service={service}
+      />
     </>
   );
 }

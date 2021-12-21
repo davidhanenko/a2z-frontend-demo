@@ -31,9 +31,10 @@ export default function ProductsPage({}) {
   });
 
   const allProducts = data?.services[0]?.items;
+  const service = 'products';
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  return <Items allServiceItems={allProducts} service={'products'} />;
+  return <Items allServiceItems={allProducts} service={service} />;
 }

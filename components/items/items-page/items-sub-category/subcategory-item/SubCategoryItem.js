@@ -5,12 +5,12 @@ import { formatUrlToRoute } from '../../../../../helpers/formatUrl';
 
 import { SubCategoryItemStyles } from './SubCategoryItemStyles';
 
-export default function SubCategoryListItem({ subCategory, itemsTitle }) {
+export default function SubCategoryListItem({ subCategory, itemsTitle, service }) {
   return (
     <SubCategoryItemStyles>
       <Link
         href={{
-          pathname: '/products/[items]/[collection]',
+          pathname: `/${service}/[items]/[collection]`,
           query: {
             items: `${formatUrlToRoute(itemsTitle)}`,
             collection: `${formatUrlToRoute(subCategory.category_title)}`,

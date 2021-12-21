@@ -75,12 +75,13 @@ const MenuDropdown = React.forwardRef(function MenuDropdown(props, ref) {
         <a
           href={props.href}
           ref={ref}
-          className={
-           router.asPath.split('/')[2] && formatUrlToRoute(router.asPath.split('/')[2]) ==
-            formatUrlToRoute(props.dropDownMenuitem)
-              ? 'active link-title'
-              : 'link-title'
-          }
+          className={`${
+            router.asPath.split('/')[2] &&
+            formatUrlToRoute(router.asPath.split('/')[2]) ==
+              formatUrlToRoute(props.dropDownMenuitem)
+              ? 'active'
+              : ''
+          } link-title`}
         >
           {props.dropDownMenuitem}
         </a>

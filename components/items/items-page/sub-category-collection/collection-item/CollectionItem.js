@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -6,11 +7,16 @@ import { formatUrlToRoute } from '../../../../../helpers/formatUrl';
 import { CollectionItemStyles } from './CollectionItemStyles';
 
 export default function CollectionItem({ item, items, collection }) {
+
+  const router = useRouter();
+  // current service
+  const service = router.asPath.split('/')[1];
+
   return (
     <CollectionItemStyles>
       <Link
         href={{
-          pathname: '/products/[items]/[collection]/[single]',
+          pathname: `/${service}/[items]/[collection]/[single]`,
           query: {
             items: `${items}`,
             collection: `${collection}`,
