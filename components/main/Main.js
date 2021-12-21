@@ -62,7 +62,7 @@ export default function Main() {
       <BannerSlider slides={slides} mediaByIndex={mediaByIndex} />
       {/* </Parallax> */}
       {/* <Parallax y={[-20, 20]}> */}
-      <ItemsMainPage />
+      <ItemsMainPage service={'products'}/>
 
 
       {/* </Parallax> */}

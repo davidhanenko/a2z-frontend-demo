@@ -22,10 +22,10 @@ const PRODUCTS_MAIN_PAGE_QUERY = gql`
   }
 `;
 
-export default function ItemsMainPage({}) {
+export default function ItemsMainPage({service}) {
   const { data, error, loading } = useQuery(PRODUCTS_MAIN_PAGE_QUERY, {
     variables: {
-      service: 'products',
+      service: service,
     },
   });
 

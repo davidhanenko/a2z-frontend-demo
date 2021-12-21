@@ -1,10 +1,12 @@
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
+
 import { MenuStateProvider } from '../../context/menuState';
 
 import { GlobalStyles } from './GlobalStyles';
 import Header from './partials/Header';
+import Footer from './partials/Footer';
 import ItemsMenu from '../menu/ItemsMenu';
-import styled from 'styled-components';
 
 const InnerStyles = styled.div`
   max-width: var(--maxWidth);
@@ -20,6 +22,7 @@ export default function MenuLayout({ children }) {
         <ItemsMenu />
       </MenuStateProvider>
       <InnerStyles>{children}</InnerStyles>
+      <Footer/>
     </>
   );
 }
