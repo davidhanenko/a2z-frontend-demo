@@ -32,12 +32,10 @@ export default function ProductsPage({ query }) {
     },
   });
 
+  const singleItem = data?.single_item[0];
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  const singleItem =  data?.single_item[0];
-  
-  return (
-      <SingleItem singleItem={singleItem} />
-  );
+  return <SingleItem singleItem={singleItem} />;
 }

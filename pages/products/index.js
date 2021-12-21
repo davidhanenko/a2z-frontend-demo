@@ -30,10 +30,10 @@ export default function ProductsPage({}) {
     },
   });
 
+  const allProducts = data?.services[0]?.items;
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
-
-  const allProducts = data?.services[0].items;
 
   return <Items allServiceItems={allProducts} service={'products'} />;
 }

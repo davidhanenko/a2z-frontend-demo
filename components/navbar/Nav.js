@@ -13,8 +13,8 @@ import { NavStyles, NavButtonStyles } from './NavStyles';
 import Search from './Search';
 import { formatUrlToRoute } from '../../helpers/formatUrl';
 
-const PRODUCTS = gql`
-  query PRODUCTS {
+const PRODUCTS_QUERY = gql`
+  query PRODUCTS_QUERY {
     services {
       service
       id
@@ -27,15 +27,12 @@ const PRODUCTS = gql`
 `;
 
 export default function Nav() {
-  const { data, error, loading } = useQuery(PRODUCTS);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  const { data, error, loading } = useQuery(PRODUCTS_QUERY);
 
   // services to spread in nav
   const services = data?.services;
 
-  const navRef = useRef();
+  const navRef = useRef(null);
 
   const { navOpen, toggleNav, closeSideNav, navBtnClick, setNavBtnClick } =
     useNav();
@@ -46,7 +43,7 @@ export default function Nav() {
   useEffect(() => {
     //  click outside nav handler
     const handleClickOutside = event => {
-      if (navOpen && !navRef.current.contains(event.target)) {
+      if (navOpen && !navRef?.current?.contains(event.target)) {
         closeSideNav();
       }
     };
@@ -82,14 +79,16 @@ export default function Nav() {
         ref={ref}
         className={
           router.asPath.split('/')[1] === page
-            ? 'active-link link-item'
-            : 'link-item'
+            ? 'active-link' : ''
         }
       >
         {title}
       </a>
     );
   });
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
   return (
     <>
@@ -103,7 +102,7 @@ export default function Nav() {
           <Link href='/' passHref>
             <LinkBtn title={'home'} page={''} />
           </Link>
-          <Link href='/about' className='link-item' passHref>
+          <Link href='/about' passHref>
             <LinkBtn title={'about'} page={'about'} />
           </Link>
 

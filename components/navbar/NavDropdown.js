@@ -17,6 +17,7 @@ import {
 // navbar dropdown item
 const DropdownItem = React.forwardRef(
   ({ href, onClick, dropdownItem }, ref) => {
+
     const { closeSideNav } = useNav();
 
     return (
@@ -39,6 +40,9 @@ const NavDropdown = React.forwardRef(function NavDropdown(props, ref) {
   const { width } = useWindowDimensions();
 
  const router = useRouter();
+
+//  props from Nav
+ const {href, title, items} = props;
 
   const showDropdown = () => setDropdownOpen(!dropdownOpen);
 
@@ -67,15 +71,15 @@ const NavDropdown = React.forwardRef(function NavDropdown(props, ref) {
     >
       <div className='dropdown-btns-group'>
         <a
-          href={props.href}
+          href={href}
           ref={ref}
           className={
-            router.asPath.split('/')[1] == props.title
-              ? 'active-link link-item'
-              : 'link-item'
+            router.asPath.split('/')[1] === title
+              ? 'active-link'
+              : ''
           }
         >
-          {props.title}
+          {title}
         </a>
         <DropdownBtnStyles
           type='button'
@@ -88,7 +92,7 @@ const NavDropdown = React.forwardRef(function NavDropdown(props, ref) {
 
       {dropdownOpen && (
         <DropdownMenuStyles isDropdownOpen={dropdownOpen}>
-          {props?.items?.map(item => (
+          {items?.map(item => (
             <Link
               href={{
                 pathname: `/products/[items]`,

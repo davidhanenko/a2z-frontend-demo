@@ -29,15 +29,15 @@ export default function ItemsMainPage({}) {
     },
   });
 
-  if (error) return <p>Error: {error.message}</p>;
-  if (loading) return <p>Loading...</p>;
-
   const SLIDE_COUNT = data?.services[0].items?.length;
 
   const slides = Array.from(Array(SLIDE_COUNT).keys());
   // func from Embla Carousel docs
   const itemsByIndex = index =>
     data?.services[0]?.items[index % data?.services[0]?.items?.length];
+
+  if (error) return <p>Error: {error.message}</p>;
+  if (loading) return <p>Loading...</p>;
 
   return (
     <ItemsMainPageStyles>

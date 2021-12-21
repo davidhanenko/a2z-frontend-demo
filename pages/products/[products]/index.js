@@ -33,10 +33,10 @@ export default function ProductsCategoryPage({ query }) {
     },
   });
 
+  const items = data?.services[0]?.items[0];
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
-
-  const items = data.services[0].items[0];
 
   return <ItemsByCategory items={items} />;
 }
