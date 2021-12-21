@@ -21,13 +21,17 @@ const TreeNodeStyles = styled.li`
   }
   &:last-of-type {
     a {
-      color: #ffe;
+      color: var(--lightBlue);
       pointer-events: none;
+      &:after {
+        content: ' / ';
+        color: var(--lightBlue);
+      }
     }
   }
   &:before {
     content: ' / ';
-    padding: 0 .2rem;
+    padding: 0 0.2rem;
   }
   &:first-of-type {
     &:before {

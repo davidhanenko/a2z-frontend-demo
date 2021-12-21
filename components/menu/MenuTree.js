@@ -16,10 +16,6 @@ export default function MenuTree() {
 
   const getRoute = (r, i) => r.slice(0, i + 1).join('/');
 
-  // useEffect(() => {
-  //   setIsActive(routesArr[1]);
-  // }, [routesArr]);
-
   return (
     <MenuTreeStyles>
       {routesArr.map((node, index, arr) => (
