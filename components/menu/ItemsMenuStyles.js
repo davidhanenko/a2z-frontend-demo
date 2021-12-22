@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const ItemsMenuStyles = styled.div`
   margin-top: calc(var(--navHeight) + var(--searchHeight));
-  background: lightblue;
+  background: var(--lightBlue);
   width: 100%;
   z-index: 1;
   padding-bottom: 2rem;
