@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { MenuStateProvider } from '../../context/menuState';
 
 import { GlobalStyles } from './GlobalStyles';
-import Header from './partials/Header';
-import Footer from './partials/Footer';
+import Header from './partials/header/Header';
+import Footer from './partials/footer/Footer';
 import ItemsMenu from '../menu/ItemsMenu';
 
 const InnerStyles = styled.div`
