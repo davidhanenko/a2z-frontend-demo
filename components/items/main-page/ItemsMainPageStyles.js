@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 const ItemsMainPageStyles = styled.section`
   position: relative;
-  margin-top: 6rem;
-  background: lightgray;
+  margin-top: 12rem;
+  background: var(--offWhite);
   margin-bottom: 10rem;
 
   h2 {
@@ -14,15 +14,7 @@ const ItemsMainPageStyles = styled.section`
     padding-left: 5rem;
   }
 
-  /* .item-title {
-    @media (max-width: 828px) {
-      font-size: 2.5rem;
-    }
-    @media (max-width: 500px) {
-      font-size: 1.5rem;
-    }
-  } */
-
+/* items slider styles for main page */
   .embla__slide {
     position: relative;
     min-width: 25%;

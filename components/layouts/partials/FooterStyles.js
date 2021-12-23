@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 const FooterStyles = styled.section`
-  background: var(--lightBlue);
+  background: var(--gray);
+  color: var(--darkBlue);
   padding: 1rem;
 
   /* position: relative;
@@ -37,6 +38,19 @@ const FooterStyles = styled.section`
     }
   }
 
+  .footer-container {
+    p {
+      text-transform: capitalize;
+    }
+  }
+  
+  .footer-contacts {
+    hr {
+      height: 1px;
+      border: none;
+      background-color: #ccc;
+    }
+  }
   .footer-social {
     display: flex;
     justify-content: center;
