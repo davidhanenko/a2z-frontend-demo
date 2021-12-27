@@ -1,13 +1,21 @@
 import Link from 'next/link';
-import { FooterLinksStyles } from './FooterStyles';
+import { FooterLinksStyles, LinkStyles } from './FooterStyles';
 
 export default function FooterLinks() {
   return (
     <FooterLinksStyles>
       <h4>Links</h4>
-      <p>link1</p>
-      <p>link2</p>
-      <p>link3</p>
+      <ul>
+        <LinkStyles>
+          <Link href={'/about'}>about</Link>
+        </LinkStyles>
+        <LinkStyles>
+          <Link href={'/contacts'}>contacts</Link>
+        </LinkStyles>
+        <LinkStyles>
+          <Link href={'/gallery'}>gallery</Link>
+        </LinkStyles>
+      </ul>
     </FooterLinksStyles>
   );
 }

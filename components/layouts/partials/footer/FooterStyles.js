@@ -11,7 +11,7 @@ const FooterStyles = styled.footer`
   padding: 0; */
 
   .footer-container {
-    margin: 0 auto;
+    margin: 2rem auto;
     width: 100%;
     max-width: var(--maxWidth);
     display: grid;
@@ -38,6 +38,7 @@ const LinkStyles = styled.li`
   a {
     text-decoration: none;
     color: inherit;
+    transition: color 0.3s;
     &:hover {
       color: var(--blue);
     }
@@ -61,21 +62,30 @@ const FooterContactsStyles = styled.section`
     width: 60%;
   }
 
-  .hours{
+  .hours {
     margin-top: 2rem;
   }
 `;
 
 const FooterLinksStyles = styled.section`
   padding-left: 2rem;
-  
 `;
 
 const FooterSocialStyles = styled.section`
   display: flex;
   justify-content: center;
-  font-size: 3rem;
+  font-size: 4rem;
   padding: 2rem;
+
+  a {
+    color: var(--darkBlue);
+    cursor: pointer;
+    margin: 0 1rem;
+    transition: color 0.3s;
+    &:hover {
+      color: var(--darkBlueHover);
+    }
+  }
 `;
 
 export {

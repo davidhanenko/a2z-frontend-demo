@@ -27,7 +27,7 @@ export default function FooterCategories() {
         {services.map(service => (
           <LinkStyles key={service.id} className='footer-link'>
             <Link href={`/${service.categoryTitle}`}>
-              <a>{service.categoryTitle}</a>
+              {service.categoryTitle}
             </Link>
           </LinkStyles>
         ))}

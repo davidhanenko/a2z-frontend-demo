@@ -11,6 +11,7 @@ const GlobalStyles = createGlobalStyle`
     --offWhite: #ededed;
     
     --blueHover: #536ade20;
+    --darkBlueHover: #3c457d90;
 
     --maxWidth: 1400px;
     --minWidth: 850px;          
