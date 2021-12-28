@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const GoToTopButtonStyles = styled.button`
+  display: none;
   position: fixed;
   right: 3%;
   bottom: 15%;
@@ -10,23 +11,24 @@ const GoToTopButtonStyles = styled.button`
   border: 1px solid var(--blueHover);
   border-radius: 0.3rem;
   cursor: pointer;
-  transition: color 0.2s;
+  transition: all 0.2s;
   z-index: 10;
+  ${props => props.visible && `display: block`};
   &:hover {
     background-color: var(--gray);
     color: var(--darkBlue);
     border: 1px solid var(--darkBlue);
-    p {
+    .btn-icon {
       transform: scale(1.35);
     }
   }
 
-  p {
+  .btn-icon {
     transform: scale(1.2);
     margin: 0;
     display: flex;
     justify-content: center;
-    transition: all 0.3s;
+    transition: all 0.1s;
   }
 `;
 

@@ -7,6 +7,7 @@ import { GlobalStyles } from './GlobalStyles';
 import Header from './partials/header/Header';
 import Footer from './partials/footer/Footer';
 import ItemsMenu from '../menu/ItemsMenu';
+import GoToTop from './partials/GoToTop';
 
 const InnerStyles = styled.div`
   max-width: var(--maxWidth);
@@ -22,7 +23,8 @@ export default function MenuLayout({ children }) {
         <ItemsMenu />
       </MenuStateProvider>
       <InnerStyles>{children}</InnerStyles>
-      <Footer/>
+      <GoToTop />
+      <Footer />
     </>
   );
 }

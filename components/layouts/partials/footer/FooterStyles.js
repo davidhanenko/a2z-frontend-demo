@@ -69,6 +69,9 @@ const FooterContactsStyles = styled.section`
 
 const FooterLinksStyles = styled.section`
   padding-left: 2rem;
+  ul {
+    padding: 0;
+  }
 `;
 
 const FooterSocialStyles = styled.section`
