@@ -1,18 +1,16 @@
 import { useEffect, useState } from 'react';
-import { useScroll } from '../../../lib/useScroll';
+// import smoothscroll from 'smoothscroll-polyfill';
 
 import { GoToTopButtonStyles } from './GoToTopStyles';
 import { MdKeyboardArrowUp } from 'react-icons/md';
 
+// if (typeof window !== 'undefined') {
+//   smoothscroll.polyfill();
+//   window.__forceSmoothScrollPolyfill__ = true;
+// }
+
 export default function GoToTop() {
-  const [visible, setVisible] = useState(false);
-
-  const { scrollRef } = useScroll();
-
-  const handleBtnVisibility = () => {
-    let scrollPosition = window.pageYOffset;
-    scrollPosition > 200 ? setVisible(true) : setVisible(false);
-  };
+  const [isVisible, setIsVisible] = useState(false);
 
   const handleClick = () => {
     window.scrollTo({
@@ -22,11 +20,17 @@ export default function GoToTop() {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleBtnVisibility);
-  });
+    const toggleBtnVisibility = () => {
+      window.pageYOffset > 200 ? setIsVisible(true) : setIsVisible(false);
+    };
+
+    window.addEventListener('scroll', toggleBtnVisibility);
+
+    return () => window.removeEventListener('scroll', toggleBtnVisibility);
+  }, []);
 
   return (
-    <GoToTopButtonStyles onClick={handleClick} visible={visible}>
+    <GoToTopButtonStyles onClick={handleClick} visible={isVisible}>
       <p className='btn-icon'>
         <MdKeyboardArrowUp size='3rem' />
       </p>

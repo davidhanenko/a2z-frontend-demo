@@ -1,5 +1,6 @@
 import Router from 'next/router';
 import NProgress from 'nprogress';
+import smoothscroll from 'smoothscroll-polyfill';
 import { ApolloProvider } from '@apollo/client';
 import { ScrollProvider } from '../lib/useScroll';
 import { ParallaxProvider } from 'react-scroll-parallax';
@@ -9,6 +10,13 @@ import '../styles/nprogress.css';
 import withData from '../lib/withData';
 
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
+
+// smoothscroll polifill - safari
+if (typeof window !== 'undefined') {
+  smoothscroll.polyfill();
+  window.__forceSmoothScrollPolyfill__ = true;
+}
+
 
 Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());

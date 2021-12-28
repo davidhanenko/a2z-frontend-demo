@@ -27,7 +27,7 @@ export default function Search({ offset }) {
   useEffect(() => {
     window.addEventListener('scroll', handleScrollPos);
     return () => window.removeEventListener('scroll', handleScrollPos);
-  });
+  },[]);
 
   return (
     <SearchStyles scroll={isScroll}>
