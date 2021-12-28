@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
 import { formatUrlToRoute } from '../../../../helpers/formatUrl';
@@ -5,11 +6,15 @@ import { formatUrlToRoute } from '../../../../helpers/formatUrl';
 import { ItemsSlideStyles, ImageOverlay } from './ItemsSlideStyles';
 
 export default function Slide({ itemsByIndex, index }) {
+  const router = useRouter();
+  // current service
+  const service = router.asPath.split('/')[1];
+
   return (
     <ItemsSlideStyles>
       <Link
         href={{
-          pathname: '/products/[products]',
+          pathname: `/${service}/[products]`,
           query: {
             products: `${formatUrlToRoute(itemsByIndex(index).title)}`,
           },
@@ -23,7 +28,9 @@ export default function Slide({ itemsByIndex, index }) {
             <ImageOverlay />
             <Image
               className='embla__slide__img item-image'
-              src={itemsByIndex(index)?.category[0]?.single_item[0]?.image[0].url}
+              src={
+                itemsByIndex(index)?.category[0]?.single_item[0]?.image[0].url
+              }
               width={300}
               height={300}
               layout='responsive'

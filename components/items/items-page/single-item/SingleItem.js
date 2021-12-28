@@ -5,10 +5,14 @@ import ReactMarkdown from 'react-markdown';
 
 import capitalizeStr from '../../../../helpers/capitalizeStr';
 
+
 import { SingleItemStyles } from './SingleItemStyles';
+import ImagesSlider from '../../../shared/sliders/images-slider/ImagesSlider';
+
+
 
 export default function SingleItem({ singleItem }) {
-  const [sizePrice, setSizePrise] = useState([...singleItem.size_prices]);
+  const [sizePrice, setSizePrise] = useState([...singleItem.sizePrices]);
   const [index, setIndex] = useState(0);
 
   // sort by prices, to show list of availiable sizes of item
@@ -22,37 +26,53 @@ export default function SingleItem({ singleItem }) {
     setIndex(sizeIndex);
   };
 
+   const SLIDE_COUNT = singleItem.image.length;
+
+   const slides = Array.from(Array(SLIDE_COUNT).keys());
+
+   const itemsByIndex = index =>
+     singleItem.image[index % singleItem.image.length];
+
   return (
     <SingleItemStyles>
       <Head>
-        <title>{capitalizeStr(singleItem.item_title)} - A2Z</title>
+        <title>{capitalizeStr(singleItem.itemTitle)} - A2Z</title>
       </Head>
       <div className='item-image-container'>
-        <Image
-          src={singleItem.image[0].url}
-          width={300}
-          height={300}
-          layout='responsive'
-        />
+        {SLIDE_COUNT > 1 ? (
+          <ImagesSlider
+            slides={slides}
+            itemsByIndex={itemsByIndex}
+            title={singleItem.itemTitle}
+          />
+        ) : (
+          <Image
+            src={singleItem.image[0].url}
+            alt={singleItem.itemTitle}
+            width={300}
+            height={300}
+            layout='responsive'
+          />
+        )}
       </div>
 
       <div className='item-description-container'>
-        <h5 className='single-item-title'>{singleItem.item_title}</h5>
+        <h4 className='single-item-title'>{singleItem.itemTitle}</h4>
 
         <hr />
         {/* show price related to size or single price */}
-        <h6 className='single-item-price'>
+        <h5 className='single-item-price'>
           ${sizePrice[index]?.price || singleItem.price}
-        </h6>
+        </h5>
 
-        <h6 className='available-sizes'>Available sizes:</h6>
+        <h5 className='available-sizes'>Available sizes:</h5>
 
         {sizePrice.map((size, i) => (
           <input
             key={size.id}
-            className={
-              i === index ? 'size-input-btn active-size-btn' : 'size-input-btn'
-            }
+            className={` size-input-btn ${
+              i === index ? 'size-input-btn active-size-btn' : ''
+            }`}
             type='button'
             onClick={handlePrice}
             value={size.size}

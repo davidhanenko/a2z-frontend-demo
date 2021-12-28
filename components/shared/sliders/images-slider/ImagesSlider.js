@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { PrevButton, NextButton } from '../SliderButtons';
 import { useEmblaCarousel } from 'embla-carousel/react';
-import ItemsSliderStyles from './ItemsSliderStyles';
+import ImagesSliderStyles from './ImagesSliderStyles';
 
 import useWindowDimensions from '../../../../lib/windowDimensions';
 
-import ItemsSlide from './ItemsSlide';
 
-const ItemsSlider = ({ slides, itemsByIndex }) => {
+import ImageSlide from './ImageSlide';
+
+const ImagesSlider = ({ slides, itemsByIndex, title }) => {
   const [viewportRef, embla] = useEmblaCarousel({
     slidesToScroll: 1,
     containScroll: 'keepSnap',
@@ -46,13 +47,13 @@ const ItemsSlider = ({ slides, itemsByIndex }) => {
 
 
   return (
-    <ItemsSliderStyles className='embla'>
+    <ImagesSliderStyles className='embla'>
       <div className='embla__viewport' ref={viewportRef}>
         <div className='embla__container'>
           {slides.map(index => (
             <div className='embla__slide' key={index}>
               <div className='embla__slide__inner'>
-                <ItemsSlide itemsByIndex={itemsByIndex} index={index} />
+                <ImageSlide itemsByIndex={itemsByIndex} index={index} title={title} />
               </div>
             </div>
           ))}
@@ -60,8 +61,8 @@ const ItemsSlider = ({ slides, itemsByIndex }) => {
       </div>
       <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />
       <NextButton onClick={scrollNext} enabled={nextBtnEnabled} />
-    </ItemsSliderStyles>
+    </ImagesSliderStyles>
   );
 };
 
-export default ItemsSlider;
+export default ImagesSlider;

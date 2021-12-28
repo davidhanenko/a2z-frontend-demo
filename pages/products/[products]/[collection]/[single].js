@@ -6,12 +6,12 @@ import SingleItem from '../../../../components/items/items-page/single-item/Sing
 
 const SINGLE_ITEM_QUERY = gql`
   query SINGLE_ITEM_QUERY($item: String!) {
-    single_item: singleItems(where: { item_title: $item }) {
+     singleItems(where: { item_title: $item }) {
       id
-      item_title
+      itemTitle: item_title
       price
       description
-      size_prices: size_price {
+      sizePrices: size_price {
         ... on ComponentPricesSizePrice {
           id
           size
@@ -32,7 +32,7 @@ export default function ProductsPage({ query }) {
     },
   });
 
-  const singleItem = data?.single_item[0];
+  const singleItem = data?.singleItems[0];
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;

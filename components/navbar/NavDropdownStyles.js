@@ -35,10 +35,11 @@ const DropdownMenuStyles = styled.ul`
     background: #e5e8fc;
     position: fixed;
     top: 6rem;
-    right: 2rem;
-    width: 42rem;
+    right: 12rem;
+    width: 50rem;
     margin: 0 0 0 -5rem;
     padding: 2rem;
+    padding-bottom: 10rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }

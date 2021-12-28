@@ -4,15 +4,15 @@ const GoToTopButtonStyles = styled.button`
   display: none;
   position: fixed;
   right: 3%;
-  bottom: 15%;
+  bottom: 10%;
   height: 4rem;
   width: 4rem;
   color: var(--blueHover);
   border: 1px solid var(--blueHover);
   border-radius: 0.3rem;
-  cursor: pointer;
   transition: all 0.2s;
   z-index: 10;
+  cursor: pointer;
   ${props => props.visible && `display: block`};
   &:hover {
     background-color: var(--gray);
