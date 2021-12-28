@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { GlobalStyles } from './GlobalStyles';
 import Header from './partials/header/Header';
 import Footer from './partials/footer/Footer';
+import GoToTop from './partials/GoToTop';
 
 const InnerStyles = styled.div`
   max-width: var(--maxWidth);
@@ -15,7 +16,8 @@ export default function MainLayout({ children }) {
       <GlobalStyles />
       <Header />
       <InnerStyles>{children}</InnerStyles>
-      <Footer/>
+      <GoToTop />
+      <Footer />
     </>
   );
 }
