@@ -12,7 +12,6 @@ export default function Search({ offset }) {
 
   const handleScrollPos = () => {
     if (window.pageYOffset > 10 && window.pageYOffset < window.innerHeight) {
-      
       window.pageYOffset !== scrollRef.current.scrollPos &&
         window.pageYOffset - scrollRef.current.scrollPos > 100 &&
         setIsScroll(true);
@@ -20,14 +19,14 @@ export default function Search({ offset }) {
       setTimeout(() => {
         setIsScroll(false);
         scrollRef.current.scrollPos = window.pageYOffset;
-      }, 300);
+      }, 400);
     }
   };
 
   useEffect(() => {
     window.addEventListener('scroll', handleScrollPos);
     return () => window.removeEventListener('scroll', handleScrollPos);
-  },[]);
+  }, []);
 
   return (
     <SearchStyles scroll={isScroll}>

@@ -2,6 +2,7 @@ import gql from 'graphql-tag';
 import { useQuery } from '@apollo/client';
 
 import Items from '../../components/items/items-page/items/Items';
+import Loader from '../../components/shared/loader/Loader';
 
 const PRODUCTS_PAGE_QUERY = gql`
   query PRODUCTS_PAGE_QUERY($service: String) {
@@ -33,7 +34,7 @@ export default function ProductsPage({}) {
   const allProducts = data?.services[0]?.items;
   const service = 'products';
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />
   if (error) return <p>Error: {error.message}</p>;
 
   return <Items allServiceItems={allProducts} service={service} />;

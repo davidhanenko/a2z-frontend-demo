@@ -14,7 +14,7 @@ import tool_2 from '../../public/img/tool-2.png';
 
 import BannerSlider from '../shared/sliders/banner-slider/BannerSlider';
 import ItemsMainPage from '../items/main-page/ItemsMainPage';
-import {MainStyles} from './MainStyles';
+import { MainStyles } from './MainStyles';
 
 const SLIDE_COUNT = 3;
 const slides = Array.from(Array(SLIDE_COUNT).keys());
@@ -62,8 +62,7 @@ export default function Main() {
       <BannerSlider slides={slides} mediaByIndex={mediaByIndex} />
       {/* </Parallax> */}
       {/* <Parallax y={[-20, 20]}> */}
-      <ItemsMainPage service={'products'}/>
-
+      <ItemsMainPage service={'products'} />
 
       {/* </Parallax> */}
       {/* <Parallax y={[0, 0]}>

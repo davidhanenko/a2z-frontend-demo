@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/client';
 import { formatUrlToDbName } from '../../../../helpers/formatUrl';
 
 import SubCategoryCollection from '../../../../components/items/items-page/sub-category-collection/SubCategoryCollection';
+import Loader from '../../../../components/shared/loader/Loader';
 
 const ITEMS_COLLECTION = gql`
   query ITEMS_COLLECTION($collection: String!) {
@@ -32,7 +33,7 @@ export default function ProductsPage({ query }) {
 
   const service = 'products';
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error: {error.message}</p>;
 
   return (

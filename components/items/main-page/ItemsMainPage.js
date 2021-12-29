@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/client';
 
 import ItemsSlider from '../../shared/sliders/items-slider/ItemsSlider';
 import { ItemsMainPageStyles } from './ItemsMainPageStyles';
+import Loader from '../../shared/loader/Loader';
 
 const PRODUCTS_MAIN_PAGE_QUERY = gql`
   query PRODUCTS_MAIN_PAGE_QUERY($service: String) {
@@ -37,7 +38,7 @@ export default function ItemsMainPage({service}) {
     data?.services[0]?.items[index % data?.services[0]?.items?.length];
 
   if (error) return <p>Error: {error.message}</p>;
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />;
 
   return (
     <ItemsMainPageStyles>

@@ -1,8 +1,11 @@
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/client';
 
-import ItemsByCategory from '../../../components/items/items-page/items-by-category/ItemsByCategory';
 import { formatUrlToDbName } from '../../../helpers/formatUrl';
+
+import Loader from '../../../components/shared/loader/Loader';
+
+import ItemsByCategory from '../../../components/items/items-page/items-by-category/ItemsByCategory';
 
 const ALL_PRODUCTS = gql`
   query ALL_PRODUCTS($service: String!, $itemsCategory: String!) {
@@ -36,7 +39,7 @@ export default function ProductsCategoryPage({ query }) {
   const items = data?.services[0]?.items[0];
   const service = 'products';
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error: {error.message}</p>;
 
   return <ItemsByCategory items={items} service={service} />;
