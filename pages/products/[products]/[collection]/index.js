@@ -6,8 +6,8 @@ import { formatUrlToDbName } from '../../../../helpers/formatUrl';
 import SubCategoryCollection from '../../../../components/items/items-page/sub-category-collection/SubCategoryCollection';
 import Loader from '../../../../components/shared/loader/Loader';
 
-const ITEMS_COLLECTION = gql`
-  query ITEMS_COLLECTION($collection: String!) {
+const ITEMS_COLLECTION_QUERY = gql`
+  query ITEMS_COLLECTION_QUERY($collection: String!) {
     items_category: itemsCategories(where: { category_title: $collection }) {
       category: category_title
       id
@@ -25,7 +25,7 @@ const ITEMS_COLLECTION = gql`
 `;
 
 export default function ProductsPage({ query }) {
-  const { data, error, loading } = useQuery(ITEMS_COLLECTION, {
+  const { data, error, loading } = useQuery(ITEMS_COLLECTION_QUERY, {
     variables: {
       collection: formatUrlToDbName(query.collection),
     },

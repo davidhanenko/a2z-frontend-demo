@@ -7,8 +7,8 @@ import Loader from '../../../components/shared/loader/Loader';
 
 import ItemsByCategory from '../../../components/items/items-page/items-by-category/ItemsByCategory';
 
-const ALL_PRODUCTS = gql`
-  query ALL_PRODUCTS($service: String!, $itemsCategory: String!) {
+const ALL_PRODUCTS_QUERY = gql`
+  query ALL_PRODUCTS_QUERY($service: String!, $itemsCategory: String!) {
     services(where: { service: $service }) {
       service
       items(where: { title: $itemsCategory }) {
@@ -29,7 +29,7 @@ const ALL_PRODUCTS = gql`
 `;
 
 export default function ProductsCategoryPage({ query }) {
-  const { data, error, loading } = useQuery(ALL_PRODUCTS, {
+  const { data, error, loading } = useQuery(ALL_PRODUCTS_QUERY, {
     variables: {
       service: 'products',
       itemsCategory: formatUrlToDbName(query.products),
