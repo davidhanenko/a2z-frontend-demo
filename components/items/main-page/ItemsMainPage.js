@@ -42,7 +42,7 @@ export default function ItemsMainPage({service}) {
   return (
     <ItemsMainPageStyles>
       <h2>Products</h2>
-      {data && <ItemsSlider slides={slides} itemsByIndex={itemsByIndex} />}
+      {data && <ItemsSlider slides={slides} itemsByIndex={itemsByIndex} service={service} />}
     </ItemsMainPageStyles>
   );
 }

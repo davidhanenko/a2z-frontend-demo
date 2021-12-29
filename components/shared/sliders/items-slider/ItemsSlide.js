@@ -1,22 +1,18 @@
-import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
 import { formatUrlToRoute } from '../../../../helpers/formatUrl';
 
 import { ItemsSlideStyles, ImageOverlay } from './ItemsSlideStyles';
 
-export default function Slide({ itemsByIndex, index }) {
-  const router = useRouter();
-  // current service
-  const service = router.asPath.split('/')[1];
+export default function Slide({ itemsByIndex, index, service }) {
 
   return (
     <ItemsSlideStyles>
       <Link
         href={{
-          pathname: `/${service}/[products]`,
+          pathname: `/${service}/[items]`,
           query: {
-            products: `${formatUrlToRoute(itemsByIndex(index).title)}`,
+            items: `${formatUrlToRoute(itemsByIndex(index).title)}`,
           },
         }}
         key={itemsByIndex(index).id}

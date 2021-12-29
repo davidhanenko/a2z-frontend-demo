@@ -7,7 +7,7 @@ import useWindowDimensions from '../../../../lib/windowDimensions';
 
 import ItemsSlide from './ItemsSlide';
 
-const ItemsSlider = ({ slides, itemsByIndex }) => {
+const ItemsSlider = ({ slides, itemsByIndex, service}) => {
   const [viewportRef, embla] = useEmblaCarousel({
     slidesToScroll: 1,
     containScroll: 'keepSnap',
@@ -52,7 +52,7 @@ const ItemsSlider = ({ slides, itemsByIndex }) => {
           {slides.map(index => (
             <div className='embla__slide' key={index}>
               <div className='embla__slide__inner'>
-                <ItemsSlide itemsByIndex={itemsByIndex} index={index} />
+                <ItemsSlide itemsByIndex={itemsByIndex} index={index} service={service} />
               </div>
             </div>
           ))}
