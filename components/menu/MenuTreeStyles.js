@@ -24,7 +24,7 @@ const TreeNodeStyles = styled.li`
       color: var(--lightBlue);
       pointer-events: none;
       &:after {
-        content: ' / ';
+        content: '';
         color: var(--lightBlue);
       }
     }

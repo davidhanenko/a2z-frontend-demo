@@ -1,10 +1,10 @@
 function formatUrlToDbName(str) {
-  return str.toLowerCase().split('_').join(' ');
+  return str.toLowerCase().split('-').join(' ');
 }
 
 function formatUrlToRoute(str) {
-  str = str.toLowerCase().split('%20').join('_');
-  return str.split(' ').join('_');
+  str = str.toLowerCase().split('%20').join('-');
+  return str.split(' ').join('-');
 }
 
 export { formatUrlToDbName, formatUrlToRoute };
