@@ -4,18 +4,23 @@ import { useQuery } from '@apollo/client';
 import Head from 'next/head';
 
 import capitalizeStr from '../../../../helpers/capitalizeStr';
-
-import CollectionItem from './collection-item/CollectionItem';
-import { SubCategoryCollectionStyles } from './SubCategoryCollectionStyles';
 import { formatUrlToDbName } from '../../../../helpers/formatUrl';
+
+import { SubCategoryCollectionStyles } from './SubCategoryCollectionStyles';
+import CollectionItem from './collection-item/CollectionItem';
 import Loader from '../../../shared/loader/Loader';
+import {perPage} from '../../../../config';
 
 const ITEMS_SUBCATEGORY_COLLECTION_QUERY = gql`
-  query ITEMS_SUBCATEGORY_COLLECTION_QUERY($collection: String!) {
+  query ITEMS_SUBCATEGORY_COLLECTION_QUERY(
+    $collection: String!
+    $limit: Int
+    $start: Int = 0
+  ) {
     itemsCategory: itemsCategories(where: { category_title: $collection }) {
       subCategoryTitle: category_title
       id
-      singleItems: single_items {
+      singleItems: single_items(start: $start, limit: $limit) {
         id
         item_title
         price
@@ -28,12 +33,14 @@ const ITEMS_SUBCATEGORY_COLLECTION_QUERY = gql`
   }
 `;
 
-export default function SubCategoryCollection({ items, collection }) {
+export default function SubCategoryCollection({ items, collection, page }) {
   const { data, error, loading } = useQuery(
     ITEMS_SUBCATEGORY_COLLECTION_QUERY,
     {
       variables: {
         collection: formatUrlToDbName(collection),
+        limit: perPage,
+        start: page * perPage - perPage,
       },
     }
   );

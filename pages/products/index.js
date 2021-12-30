@@ -3,9 +3,7 @@ import { useQuery } from '@apollo/client';
 
 import Items from '../../components/items/items-page/items/Items';
 import Loader from '../../components/shared/loader/Loader';
-import Pagination from '../../components/shared/pagination/Pagination';
-import { perPage } from '../../config';
-import { useRouter } from 'next/dist/client/router';
+
 
 const PRODUCTS_PAGE_QUERY = gql`
   query PRODUCTS_PAGE_QUERY($service: String, $limit: Int, $start: Int = 0) {
@@ -27,26 +25,11 @@ const PRODUCTS_PAGE_QUERY = gql`
   }
 `;
 
-const PAGINATION_QUERY = gql`
-  query PAGINATION_QUERY {
-    itemsConnection {
-      aggregate {
-        count
-      }
-    }
-  }
-`;
-
-
 export default function ProductsPage({}) {
-  const { query } = useRouter();
-  const page = parseInt(query.page);
 
   const { data, error, loading } = useQuery(PRODUCTS_PAGE_QUERY, {
     variables: {
       service: 'products',
-      limit: perPage,
-      start: page * perPage - perPage,
     },
   });
 
@@ -56,11 +39,5 @@ export default function ProductsPage({}) {
   if (loading) return <Loader />;
   if (error) return <p>Error: {error.message}</p>;
 
-  return (
-    <>
-      <Pagination page={page || 1} />
-      <Items allServiceItems={allProducts} service={service} page={page || 1} />
-      ;
-    </>
-  );
+  return <Items allServiceItems={allProducts} service={service} />;
 }
