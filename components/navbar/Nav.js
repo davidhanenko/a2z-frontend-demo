@@ -11,7 +11,7 @@ import useWindowDimensions from '../../lib/windowDimensions';
 import NavDropdown from './NavDropdown';
 import { NavStyles, NavButtonStyles } from './NavStyles';
 import Search from './Search';
-import {toggleWidth} from '../../config';
+import {TOGGLE_WIDTH} from '../../config';
 
 const PRODUCTS_QUERY = gql`
   query PRODUCTS_QUERY {
@@ -60,7 +60,7 @@ export default function Nav() {
   // close nav when width more than 850px/toggleWidth
   useEffect(() => {
     let isMounted = true;
-    if (width >= toggleWidth) {
+    if (width >= TOGGLE_WIDTH) {
       closeSideNav();
     }
     return () => {

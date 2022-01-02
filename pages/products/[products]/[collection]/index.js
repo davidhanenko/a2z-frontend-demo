@@ -6,10 +6,11 @@ import { formatUrlToDbName } from '../../../../helpers/formatUrl';
 import { PaginationStateProvider } from '../../../../context/paginationState';
 import Pagination from '../../../../components/shared/pagination/Pagination';
 
-
 const PAGINATION_QUERY = gql`
   query PAGINATION_QUERY($collection: String!) {
-    itemsCategory: itemsCategories(where: { category_title: $collection }) {
+    itemsCategory: itemsCategories(
+      where: { category_title: $collection }
+    ) {
       singleItems: single_items {
         id
       }
@@ -18,20 +19,26 @@ const PAGINATION_QUERY = gql`
 `;
 
 export default function ProductsPage({ query }) {
-  const { data, error, loading } = useQuery(PAGINATION_QUERY, {
-    variables: {
-      collection: formatUrlToDbName(query.collection),
-    },
-  });
+  const { data, error, loading } = useQuery(
+    PAGINATION_QUERY,
+    {
+      variables: {
+        collection: formatUrlToDbName(query.collection),
+      },
+    }
+  );
   const service = 'products';
 
-  const itemsCount = data?.itemsCategory[0]?.singleItems?.length;
+  const itemsCount =
+    data?.itemsCategory[0]?.singleItems?.length;
 
   const items = query.products;
   const collection = query.collection;
 
+  // url for pagination component
   const currentUrl = `${service}/${items}/${collection}`;
 
+  // current page
   const page = parseInt(query.page);
 
   return (

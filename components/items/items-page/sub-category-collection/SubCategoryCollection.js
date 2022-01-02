@@ -47,6 +47,7 @@ export default function SubCategoryCollection({ items, collection, page }) {
     }
   );
 
+
   // subcategory collection data
   const subCategoryCollection = data?.itemsCategory[0];
 

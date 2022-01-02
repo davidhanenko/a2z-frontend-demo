@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from 'react';
 
-import {perPageDefault} from '../config';
+import {PER_PAGE_DEFAULT} from '../config';
 
 
 const LocalStateContext = createContext();
@@ -8,7 +8,7 @@ const LocalStateProvider = LocalStateContext.Provider;
 
 function PaginationStateProvider({ children }) {
 
-  const [itemsPerPage, setItemsPerPage] = useState(perPageDefault);
+  const [itemsPerPage, setItemsPerPage] = useState(PER_PAGE_DEFAULT);
   
   return (
     <LocalStateProvider
