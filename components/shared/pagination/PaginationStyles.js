@@ -1,27 +1,40 @@
 import styled from 'styled-components';
 
 const PaginationStyles = styled.div`
-  text-align: center;
-  /* display: inline-grid; */
-  grid-template-columns: repeat(4, auto);
-  align-items: stretch;
-  justify-content: center;
-  align-content: center;
-  margin: 2rem 0;
-  border: 1px solid var(--lightGray);
-  border-radius: 10px;
-  & > * {
-    margin: 0;
-    padding: 15px 30px;
-    border-right: 1px solid var(--lightGray);
-    &:last-child {
-      border-right: 0;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  user-select: none;
+`;
+
+const PagesInputStyles = styled.div`
+  display: inline;
+  margin-left: 2rem;
+  color: var(--dark);
+  select {
+    margin: 0 1rem;
+    padding: 0.5rem;
+  }
+`;
+
+const PagesControlStyles = styled.div`
+  display: inline;
+  margin-right: 2rem;
+ 
+  a {
+    margin: 1rem;
+    color: gray;
+    border-radius: 5px;
+    transition: color 0.25s;
+    &:hover {
+      color: var(--dark);
     }
   }
   a[aria-disabled='true'] {
-    color: grey;
+    color: var(--dark);
+    cursor: not-allowed;
     pointer-events: none;
   }
 `;
 
-export {PaginationStyles};
+export { PaginationStyles, PagesInputStyles, PagesControlStyles };

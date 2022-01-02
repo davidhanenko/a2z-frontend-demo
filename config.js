@@ -3,7 +3,7 @@ export const endpoint = 'http://localhost:1337/graphql';
 export const prodEndpoint =
   `${process.env.NEXT_PUBLIC_API_URL}/graphql`;
 
-export const perPage = 2;
+export const perPageDefault = 2;
 
 export const toggleWidth = 850; 
 

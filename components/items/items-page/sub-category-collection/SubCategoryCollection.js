@@ -3,13 +3,13 @@ import { useQuery } from '@apollo/client';
 
 import Head from 'next/head';
 
+import { usePagination } from '../../../../context/paginationState';
 import capitalizeStr from '../../../../helpers/capitalizeStr';
 import { formatUrlToDbName } from '../../../../helpers/formatUrl';
 
 import { SubCategoryCollectionStyles } from './SubCategoryCollectionStyles';
 import CollectionItem from './collection-item/CollectionItem';
 import Loader from '../../../shared/loader/Loader';
-import {perPage} from '../../../../config';
 
 const ITEMS_SUBCATEGORY_COLLECTION_QUERY = gql`
   query ITEMS_SUBCATEGORY_COLLECTION_QUERY(
@@ -34,13 +34,15 @@ const ITEMS_SUBCATEGORY_COLLECTION_QUERY = gql`
 `;
 
 export default function SubCategoryCollection({ items, collection, page }) {
+  const { itemsPerPage } = usePagination();
+
   const { data, error, loading } = useQuery(
     ITEMS_SUBCATEGORY_COLLECTION_QUERY,
     {
       variables: {
         collection: formatUrlToDbName(collection),
-        limit: perPage,
-        start: page * perPage - perPage,
+        limit: itemsPerPage,
+        start: page * itemsPerPage - itemsPerPage,
       },
     }
   );

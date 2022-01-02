@@ -3,23 +3,10 @@ import { useQuery } from '@apollo/client';
 
 import SubCategoryCollection from '../../../../components/items/items-page/sub-category-collection/SubCategoryCollection';
 import { formatUrlToDbName } from '../../../../helpers/formatUrl';
+import { PaginationStateProvider } from '../../../../context/paginationState';
 import Pagination from '../../../../components/shared/pagination/Pagination';
 
-// const PAGINATION_QUERY = gql`
-//   query PAGINATION_QUERY($collection: String!) {
-//     singleItemsConnection(where: { category_title: $collection }) {
-//       groupBy {
-//         items_category {
-//           connection {
-//             aggregate {
-//               count
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
+
 const PAGINATION_QUERY = gql`
   query PAGINATION_QUERY($collection: String!) {
     itemsCategory: itemsCategories(where: { category_title: $collection }) {
@@ -48,7 +35,7 @@ export default function ProductsPage({ query }) {
   const page = parseInt(query.page);
 
   return (
-    <>
+    <PaginationStateProvider>
       <Pagination
         page={page || 1}
         currentUrl={currentUrl}
@@ -60,6 +47,6 @@ export default function ProductsPage({ query }) {
         collection={collection}
         page={page || 1}
       />
-    </>
+    </PaginationStateProvider>
   );
 }

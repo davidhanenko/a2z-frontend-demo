@@ -1,13 +1,7 @@
 import { useEffect, useState } from 'react';
-// import smoothscroll from 'smoothscroll-polyfill';
 
 import { GoToTopButtonStyles } from './GoToTopStyles';
 import { MdKeyboardArrowUp } from 'react-icons/md';
-
-// if (typeof window !== 'undefined') {
-//   smoothscroll.polyfill();
-//   window.__forceSmoothScrollPolyfill__ = true;
-// }
 
 export default function GoToTop() {
   const [isVisible, setIsVisible] = useState(false);
