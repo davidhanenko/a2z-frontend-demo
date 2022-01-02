@@ -24,14 +24,15 @@ const NavStyles = styled.nav`
       top: 0;
       right: 0;
       width: 40%;
-      min-width: 250px;
+      min-width: 80%;
       background: var(--gray);
       transform: translateX(100%);
       z-index: 2;
       padding-bottom: 2rem;
+      opacity: 0;
       ${props =>
         props.open &&
-        `grid-auto-flow: row; transform: translate(0, var(--navHeight)); transition: all 0.35s;`};
+        `grid-auto-flow: row; opacity: 1; transform: translate(0, var(--navHeight)); transition: all 0.35s;`};
       ${props =>
         !props.open &&
         props.width <= 850 &&

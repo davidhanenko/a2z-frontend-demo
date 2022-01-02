@@ -5,6 +5,7 @@ import SubCategoryCollection from '../../../../components/items/items-page/sub-c
 import { formatUrlToDbName } from '../../../../helpers/formatUrl';
 import { PaginationStateProvider } from '../../../../context/paginationState';
 import Pagination from '../../../../components/shared/pagination/Pagination';
+import Loader from '../../../../components/shared/loader/Loader';
 
 const PAGINATION_QUERY = gql`
   query PAGINATION_QUERY($collection: String!) {
@@ -40,6 +41,9 @@ export default function ProductsPage({ query }) {
 
   // current page
   const page = parseInt(query.page);
+
+    if (loading) return <Loader />;
+    if (error) return <p>Error: {error.message}</p>;
 
   return (
     <PaginationStateProvider>

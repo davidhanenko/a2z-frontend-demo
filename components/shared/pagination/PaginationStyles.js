@@ -1,17 +1,20 @@
 import styled from 'styled-components';
 
-const PaginationStyles = styled.div`
+const PaginationContainerStyles = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 2rem;
   user-select: none;
 `;
 
-const PagesInputStyles = styled.div`
+const ItemsPerPageSelectStyles = styled.div`
   display: inline;
   margin-left: 2rem;
   color: var(--dark);
   select {
+    border: 1px solid gray;
+    /* border-radius: 5px; */
+    background: var(--lightGray);
     margin: 0 1rem;
     padding: 0.5rem;
   }
@@ -37,4 +40,8 @@ const PagesControlStyles = styled.div`
   }
 `;
 
-export { PaginationStyles, PagesInputStyles, PagesControlStyles };
+export {
+  PaginationContainerStyles,
+  ItemsPerPageSelectStyles,
+  PagesControlStyles,
+};

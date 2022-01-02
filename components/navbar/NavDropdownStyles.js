@@ -18,7 +18,6 @@ const DropdownBtnStyles = styled.button`
   cursor: pointer;
   @media (max-width: 850px) {
     position: relative;
-    right: 2rem;
   }
   svg {
     color: var(--darkBlue);
@@ -49,11 +48,12 @@ const DropdownItemStyles = styled.li`
   list-style: none;
   text-transform: capitalize;
   cursor: pointer;
-  padding: 0.5rem;
   line-height: 2rem;
   font-weight: 300;
+  padding: 0.6rem;
   @media (max-width: 850px) {
     line-height: 1.7rem;
+    font-size: 2rem;
     a {
       display: block;
     }
