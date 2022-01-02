@@ -11,8 +11,10 @@ export default function ItemsPerPageSelect({ currentUrl }) {
 
   const handleSelect = e => {
     setItemsPerPage(parseInt(e.target.value));
-    localStorage.setItem('perPage', e.target.value);
-    // switch the page to 1st when change amount of products showed on page
+    // set items amount to local storage
+    localStorage.setItem('showPerPage', e.target.value);
+    // switch the page to 1st when change amount of items showed on page
+    // console.log(localStorage);
     router.push(`?page=1`);
   };
 
@@ -31,5 +33,3 @@ export default function ItemsPerPageSelect({ currentUrl }) {
     </ItemsPerPageSelectStyles>
   );
 }
-
-

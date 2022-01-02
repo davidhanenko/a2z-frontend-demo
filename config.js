@@ -4,6 +4,7 @@ export const PROD_ENDPOINT =
   `${process.env.NEXT_PUBLIC_API_URL}/graphql`;
 
 export const PER_PAGE_DEFAULT = 2;
+export const SORT_ITEMS_BY_DEFAULT = 'item_title:asc';
 
 export const TOGGLE_WIDTH = 850; 
 

@@ -16,13 +16,20 @@ const ITEMS_SUBCATEGORY_COLLECTION_QUERY = gql`
     $collection: String!
     $limit: Int
     $start: Int = 0
+    $sort: String
   ) {
-    itemsCategory: itemsCategories(where: { category_title: $collection }) {
+    itemsCategory: itemsCategories(
+      where: { category_title: $collection }
+    ) {
       subCategoryTitle: category_title
       id
-      singleItems: single_items(start: $start, limit: $limit) {
+      singleItems: single_items(
+        start: $start
+        limit: $limit
+        sort: $sort
+      ) {
         id
-        item_title
+        itemTitle: item_title
         price
         description
         image {
@@ -33,8 +40,13 @@ const ITEMS_SUBCATEGORY_COLLECTION_QUERY = gql`
   }
 `;
 
-export default function SubCategoryCollection({ items, collection, page }) {
-  const { itemsPerPage } = usePagination();
+export default function SubCategoryCollection({
+  items,
+  collection,
+  page,
+  sort,
+}) {
+  const { itemsPerPage, sortItemsBy } = usePagination();
 
   const { data, error, loading } = useQuery(
     ITEMS_SUBCATEGORY_COLLECTION_QUERY,
@@ -43,10 +55,10 @@ export default function SubCategoryCollection({ items, collection, page }) {
         collection: formatUrlToDbName(collection),
         limit: itemsPerPage,
         start: page * itemsPerPage - itemsPerPage,
+        sort: sortItemsBy,
       },
     }
   );
-
 
   // subcategory collection data
   const subCategoryCollection = data?.itemsCategory[0];
@@ -58,7 +70,10 @@ export default function SubCategoryCollection({ items, collection, page }) {
     <SubCategoryCollectionStyles>
       <Head>
         <title>
-          {capitalizeStr(subCategoryCollection.subCategoryTitle)} - A2Z
+          {capitalizeStr(
+            subCategoryCollection.subCategoryTitle
+          )}{' '}
+          - A2Z
         </title>
       </Head>
       <h3 className='collection-title'>

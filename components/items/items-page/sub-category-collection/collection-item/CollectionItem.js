@@ -20,7 +20,7 @@ export default function CollectionItem({ item, items, collection }) {
           query: {
             items: `${items}`,
             collection: `${collection}`,
-            single: `${formatUrlToRoute(item.item_title)}`,
+            single: `${formatUrlToRoute(item.itemTitle)}`,
           },
         }}
       >
@@ -31,7 +31,7 @@ export default function CollectionItem({ item, items, collection }) {
             height={200}
             alt={item.item_title}
           />
-          <h4 className='collection-item-title'>{item.item_title}</h4>
+          <h4 className='collection-item-title'>{item.itemTitle}</h4>
         </a>
       </Link>
     </CollectionItemStyles>

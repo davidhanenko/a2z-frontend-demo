@@ -13,7 +13,17 @@ const ItemsPerPageSelectStyles = styled.div`
   color: var(--dark);
   select {
     border: 1px solid gray;
-    /* border-radius: 5px; */
+    background: var(--lightGray);
+    margin: 0 1rem;
+    padding: 0.5rem;
+  }
+`;
+
+const ItemsSortSelectStyles = styled.div`
+  display: inline;
+  margin-left: 3rem;
+  select {
+    border: 1px solid gray;
     background: var(--lightGray);
     margin: 0 1rem;
     padding: 0.5rem;
@@ -44,4 +54,5 @@ export {
   PaginationContainerStyles,
   ItemsPerPageSelectStyles,
   PagesControlStyles,
+  ItemsSortSelectStyles
 };

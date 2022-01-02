@@ -1,21 +1,20 @@
-
 import PagesControl from './PagesControl';
 import ItemsPerPageSelect from './ItemsPerPageSelect';
 
-import {
-  PaginationContainerStyles,
-} from './PaginationStyles';
-
+import ItemsSortSelect from './ItemsSortSelect';
+import { PaginationContainerStyles } from './PaginationStyles';
 
 export default function Pagination({
   page,
   currentUrl,
   itemsCount,
 }) {
-
   return (
     <PaginationContainerStyles>
-      <ItemsPerPageSelect currentUrl={currentUrl} />
+      <div>
+        <ItemsPerPageSelect currentUrl={currentUrl} />
+        <ItemsSortSelect />
+      </div>
       <PagesControl
         page={page}
         currentUrl={currentUrl}
