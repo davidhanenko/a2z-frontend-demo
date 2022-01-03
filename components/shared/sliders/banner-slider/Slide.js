@@ -32,12 +32,23 @@ export default function Silde({
         objectFit='cover'
         layout='fill'
         alt=''
+        placeholder='blur'
       />
       <div className='image-1'>
-        <Image width={200} height={200} src={mediaByIndex(index).img1} />
+        <Image
+          width={200}
+          height={200}
+          src={mediaByIndex(index).img1}
+          placeholder='blur'
+        />
       </div>
       <div className='image-2'>
-        <Image width={200} height={200} src={mediaByIndex(index).img2} />
+        <Image
+          width={200}
+          height={200}
+          src={mediaByIndex(index).img2}
+          placeholder='blur'
+        />
       </div>
       <a href={mediaByIndex(index).link}>
         <button className='slide-btn' type='button'>

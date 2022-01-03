@@ -15,7 +15,7 @@ export default function Pagination({
     <PaginationContainerStyles>
       <div>
         <ItemsPerPageSelect currentUrl={currentUrl} />
-        <ItemsSortSelect SORTING_OPTIONS={PER_PAGE_OPRIONS} />
+        <ItemsSortSelect />
       </div>
       <PagesControl
         page={page}
