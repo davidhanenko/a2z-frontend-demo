@@ -26,7 +26,7 @@ const DropdownBtnStyles = styled.button`
     right: 2rem;
   }
   svg {
-    color: grey;
+    color: var(--gray);
     transform: scale(2);
   }
 `;
@@ -39,7 +39,7 @@ const DropdownMenuStyles = styled.ul`
   display: none;
   visibility: hidden;
   ${props =>
-    props.dropdownOpen && `opacity: 1; visibility: visible;display: block;`}
+    props.dropdownOpen && `opacity: 1; visibility: visible; display: block;`}
   @media (min-width: 850px) {
     background: #c1e2ec;
     min-height: 15rem;

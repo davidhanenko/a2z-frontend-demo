@@ -25,7 +25,7 @@ const NavStyles = styled.nav`
       right: 0;
       width: 40%;
       min-width: 80%;
-      background: var(--gray);
+      background: var(--lightGray);
       transform: translateX(100%);
       z-index: 2;
       padding-bottom: 2rem;

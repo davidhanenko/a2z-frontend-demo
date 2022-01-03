@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const FooterStyles = styled.footer`
-  background: var(--gray);
+  background: var(--lightGray);
   color: var(--darkBlue);
   padding: 1rem;
 
@@ -16,7 +16,10 @@ const FooterStyles = styled.footer`
     max-width: var(--maxWidth);
     display: grid;
     grid-gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(300px, 1fr)
+    );
   }
 
   h4 {

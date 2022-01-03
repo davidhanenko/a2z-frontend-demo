@@ -36,7 +36,7 @@ export default function ItemsMenu({}) {
     },
   });
 
-  const { isOpen, setOpen, btnClicked, setBtnClicked, closeMenu } = useMenu();
+  const { isMenuOpen, setMenuOpen, btnClicked, setBtnClicked, closeMenu } = useMenu();
 
   // ref for side menu container
   const sideMenuRef = useRef();
@@ -49,22 +49,28 @@ export default function ItemsMenu({}) {
     //  click outside side menu handler
     const handleClickOutside = event => {
       if (
-        isOpen &&
+        isMenuOpen &&
         !btnRef.current.contains(event.target) &&
         !sideMenuRef.current.contains(event.target)
       ) {
-        setOpen(false);
+        setMenuOpen(false);
       }
     };
 
     //  click outside side menu listener
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener(
+      'mousedown',
+      handleClickOutside
+    );
 
     // cleanup the event listener
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener(
+        'mousedown',
+        handleClickOutside
+      );
     };
-  }, [isOpen]);
+  }, [isMenuOpen]);
 
   // close side menu if width is more than 850px
   useEffect(() => {
@@ -84,14 +90,20 @@ export default function ItemsMenu({}) {
 
   return (
     <>
-      <ItemsMenuStyles menuOpen={isOpen} btnClicked={btnClicked}>
+      <ItemsMenuStyles
+        isMenuOpen={isMenuOpen}
+        btnClicked={btnClicked}
+      >
         <div className='menu-header'>
-          <MenuButtonStyles ref={btnRef} onClick={() => setBtnClicked(true)}>
+          <MenuButtonStyles
+            ref={btnRef}
+            onClick={() => setBtnClicked(true)}
+          >
             <Hamburger
               hideOutline={false}
               label='show menu'
-              toggled={isOpen}
-              toggle={setOpen}
+              toggled={isMenuOpen}
+              toggle={setMenuOpen}
             />
           </MenuButtonStyles>
 
@@ -101,7 +113,10 @@ export default function ItemsMenu({}) {
         {/* menu container*/}
         <div className='menu-links'>
           {menuItems?.map(menuItem => (
-            <MenuLink menuItem={menuItem} key={menuItem.id} />
+            <MenuLink
+              menuItem={menuItem}
+              key={menuItem.id}
+            />
           ))}
         </div>
 
@@ -112,7 +127,7 @@ export default function ItemsMenu({}) {
               menuItem={menuItem}
               key={menuItem.id}
               onClick={() => {
-                setOpen(false);
+                setMenuOpen(false);
               }}
             />
           ))}

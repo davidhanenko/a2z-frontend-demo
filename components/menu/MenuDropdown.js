@@ -39,7 +39,7 @@ const DropdownItem = React.forwardRef(
 const MenuDropdown = React.forwardRef(function MenuDropdown(props, ref) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const { isOpen, setOpen } = useMenu();
+  const { isMenuOpen } = useMenu();
 
   const { width } = useWindowDimensions();
 
@@ -48,11 +48,11 @@ const MenuDropdown = React.forwardRef(function MenuDropdown(props, ref) {
   const showDropdown = () => setDropdownOpen(!dropdownOpen);
 
   const handleMouseEnter = () => {
-    !isOpen && setDropdownOpen(true);
+    !isMenuOpen && setDropdownOpen(true);
   };
 
   const handleMouseLeave = () => {
-    !isOpen && setDropdownOpen(false);
+    !isMenuOpen && setDropdownOpen(false);
   };
 
   // close dropdown if width more than 850px
@@ -88,9 +88,13 @@ const MenuDropdown = React.forwardRef(function MenuDropdown(props, ref) {
         <DropdownBtnStyles
           type='button'
           onClick={showDropdown}
-          disabled={!isOpen || width > 850}
+          disabled={!isMenuOpen || width > 850}
         >
-          {dropdownOpen && isOpen ? <MdExpandLess /> : <MdExpandMore />}
+          {dropdownOpen && isMenuOpen ? (
+            <MdExpandLess />
+          ) : (
+            <MdExpandMore />
+          )}
         </DropdownBtnStyles>
       </div>
 
@@ -100,8 +104,12 @@ const MenuDropdown = React.forwardRef(function MenuDropdown(props, ref) {
             href={{
               pathname: '/products/[items]/[collection]',
               query: {
-                items: `${formatUrlToRoute(props.dropDownMenuitem)}`,
-                collection: `${formatUrlToRoute(category.category)}`,
+                items: `${formatUrlToRoute(
+                  props.dropDownMenuitem
+                )}`,
+                collection: `${formatUrlToRoute(
+                  category.category
+                )}`,
               },
             }}
             key={category.id}

@@ -51,7 +51,7 @@ const SingleItemStyles = styled.div`
       margin: 0.5rem 0.5rem 2rem 0.5rem;
       padding: 1rem 2rem;
       border: none;
-      background: var(--gray);
+      background: var(--lightGray);
       transition: background 0.3s;
       cursor: pointer;
       &:hover {

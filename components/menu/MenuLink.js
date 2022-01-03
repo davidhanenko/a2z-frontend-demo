@@ -1,6 +1,5 @@
 import Link from 'next/link';
 
-import { useMenu } from '../../context/menuState';
 import { formatUrlToRoute } from '../../helpers/formatUrl';
 
 import MenuDropdown from './MenuDropdown';

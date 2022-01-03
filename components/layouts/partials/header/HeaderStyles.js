@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const HeaderStyles = styled.header`
-  background: var(--gray);
+  background: var(--lightGray);
   margin: 0;
   padding: 0;
   max-height: var(--navHeight);
