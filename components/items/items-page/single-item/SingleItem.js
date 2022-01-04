@@ -52,7 +52,6 @@ export default function SingleItem({ singleItem }) {
             width={300}
             height={300}
             layout='responsive'
-           
           />
         )}
       </div>

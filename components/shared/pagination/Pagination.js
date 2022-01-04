@@ -4,7 +4,6 @@ import ItemsPerPageSelect from './ItemsPerPageSelect';
 import ItemsSortSelect from './ItemsSortSelect';
 import { PaginationContainerStyles } from './PaginationStyles';
 
-import {PER_PAGE_OPRIONS} from '../../../config';
 
 export default function Pagination({
   page,
@@ -14,7 +13,7 @@ export default function Pagination({
   return (
     <PaginationContainerStyles>
       <div>
-        <ItemsPerPageSelect currentUrl={currentUrl} />
+        <ItemsPerPageSelect/>
         <ItemsSortSelect />
       </div>
       <PagesControl
