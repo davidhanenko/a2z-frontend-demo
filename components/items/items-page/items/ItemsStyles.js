@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 const ItemsStyles = styled.div`
-  padding: 2rem;
+  padding: 10rem 2rem;
   justify-content: center;
   display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 300px));
-  @media (max-width: 500px) {
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 300px));
+  /* @media (max-width: 500px) {
     grid-template-columns: repeat(auto-fill, minmax(200px, 300px));
-  }
+  } */
  
 
   .service-item-title {

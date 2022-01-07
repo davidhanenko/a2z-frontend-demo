@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const PaginationContainerStyles = styled.div`
   display: flex;
   justify-content: space-between;
+  padding: 0 1.5rem;
   margin-top: 2rem;
   user-select: none;
   @media (max-width: 850px) {
@@ -24,14 +25,15 @@ const ItemsPerPageSelectStyles = styled.div`
 const ItemsSortSelectStyles = styled.div`
   display: inline;
   margin-left: 1rem;
-  position: relative;
-
-  
 `;
 
 const PagesControlStyles = styled.div`
   display: inline;
   margin-right: 2rem;
+  @media(max-width: 850px) {
+    display: flex;
+    justify-content: end;
+  }
  
 
   a {

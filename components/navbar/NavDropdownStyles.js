@@ -26,7 +26,6 @@ const DropdownBtnStyles = styled.button`
 `;
 
 const DropdownMenuStyles = styled.ul`
-  background: var(--gray);
   padding-left: 2rem;
   z-index: 2;
 

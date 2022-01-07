@@ -21,7 +21,8 @@ const DropdownBtnStyles = styled.button`
   cursor: pointer;
   display: none;
   @media (max-width: 850px) {
-    display: block;
+    display: flex;
+    align-self: center;
     position: fixed;
     right: 2rem;
   }

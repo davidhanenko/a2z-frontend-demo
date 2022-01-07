@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const SubCategoryCollectionStyles = styled.div`
-  padding: 2rem;
+  padding: 10rem 5rem;
 
   .collection-title {
     text-transform: uppercase;
