@@ -11,7 +11,7 @@ import useWindowDimensions from '../../lib/windowDimensions';
 import NavDropdown from './NavDropdown';
 import { NavStyles, NavButtonStyles } from './NavStyles';
 import Search from './Search';
-import {TOGGLE_WIDTH} from '../../config';
+import { TOGGLE_WIDTH } from '../../config';
 
 const PRODUCTS_QUERY = gql`
   query PRODUCTS_QUERY {
@@ -21,6 +21,14 @@ const PRODUCTS_QUERY = gql`
       items {
         id
         title
+        category: items_categories(limit: 1) {
+          id
+          singleItem: single_items(limit: 1) {
+            image {
+              url
+            }
+          }
+        }
       }
     }
   }
@@ -34,8 +42,13 @@ export default function Nav() {
 
   const navRef = useRef(null);
 
-  const { navOpen, toggleNav, closeSideNav, navBtnClick, setNavBtnClick } =
-    useNav();
+  const {
+    navOpen,
+    toggleNav,
+    closeSideNav,
+    navBtnClick,
+    setNavBtnClick,
+  } = useNav();
 
   const { width } = useWindowDimensions();
 
@@ -43,17 +56,26 @@ export default function Nav() {
   useEffect(() => {
     //  click outside nav handler
     const handleClickOutside = event => {
-      if (navOpen && !navRef?.current?.contains(event.target)) {
+      if (
+        navOpen &&
+        !navRef?.current?.contains(event.target)
+      ) {
         closeSideNav();
       }
     };
 
     //  click outside nav listener
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener(
+      'mousedown',
+      handleClickOutside
+    );
 
     // cleanup the event listener
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener(
+        'mousedown',
+        handleClickOutside
+      );
     };
   }, [navOpen]);
 
@@ -71,21 +93,24 @@ export default function Nav() {
   const router = useRouter();
 
   // link button
-  const LinkBtn = React.forwardRef(({ href, title, page }, ref) => {
-    return (
-      <a
-        href={href}
-        onClick={() => closeSideNav()}
-        ref={ref}
-        className={
-          router.asPath.split('/')[1] === page
-            ? 'active-link' : ''
-        }
-      >
-        {title}
-      </a>
-    );
-  });
+  const LinkBtn = React.forwardRef(
+    ({ href, title, page }, ref) => {
+      return (
+        <a
+          href={href}
+          onClick={() => closeSideNav()}
+          ref={ref}
+          className={
+            router.asPath.split('/')[1] === page
+              ? 'active-link'
+              : ''
+          }
+        >
+          {title}
+        </a>
+      );
+    }
+  );
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
@@ -106,9 +131,17 @@ export default function Nav() {
             <LinkBtn title={'about'} page={'about'} />
           </Link>
 
+          {/* items dropdown */}
           {services.map(service => (
-            <Link key={service.id} href={`/${service.service}`} passHref>
-              <NavDropdown title={service.service} items={service.items} />
+            <Link
+              key={service.id}
+              href={`/${service.service}`}
+              passHref
+            >
+              <NavDropdown
+                title={service.service}
+                items={service.items}
+              />
             </Link>
           ))}
 
@@ -119,7 +152,9 @@ export default function Nav() {
             <LinkBtn title={'contacts'} page={'contacts'} />
           </Link>
         </div>
-        <NavButtonStyles onClick={() => setNavBtnClick(true)}>
+        <NavButtonStyles
+          onClick={() => setNavBtnClick(true)}
+        >
           <Hamburger
             hideOutline={false}
             label='Show menu'
