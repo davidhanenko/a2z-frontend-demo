@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 
 import { usePagination } from '../../../context/paginationState';
 
-import { PER_PAGE_OPRIONS } from '../../../config';
+import { PER_PAGE_OPTIONS } from '../../../config';
 
 import DropdownSelect from './dropdown/DropdownSelect';
 import { ItemsPerPageSelectStyles } from './PaginationStyles';
@@ -25,7 +25,7 @@ export default function ItemsPerPageSelect({}) {
       <p>show</p>
       {itemsPerPage && (
         <DropdownSelect
-          options={PER_PAGE_OPRIONS}
+          options={PER_PAGE_OPTIONS}
           select={itemsPerPage}
           handleSelect={handleSelect}
         />

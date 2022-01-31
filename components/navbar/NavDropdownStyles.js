@@ -44,12 +44,31 @@ const DropdownMenuStyles = styled.ul`
 `;
 
 const DropdownItemStyles = styled.li`
+  .item-title-img {
+    display: flex;
+    align-items: center;
+  }
+
   list-style: none;
   text-transform: capitalize;
   cursor: pointer;
   line-height: 2rem;
   font-weight: 300;
   padding: 0.6rem;
+
+  p {
+    margin: 0;
+    padding-left: 1rem;
+  }
+
+  a {
+    &:hover {
+      img {
+        transform: scale(0.9);
+      }
+    }
+  }
+
   @media (max-width: 850px) {
     line-height: 1.7rem;
     font-size: 2rem;

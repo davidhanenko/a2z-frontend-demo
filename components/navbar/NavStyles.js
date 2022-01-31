@@ -49,7 +49,7 @@ const NavStyles = styled.nav`
     padding: 0.2rem 1rem;
     color: var(--darkBlue);
     position: relative;
-    transition: all 250ms;
+    transition: all 300ms;
     &:hover,
     &:focus {
       text-decoration: none;

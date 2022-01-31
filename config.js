@@ -26,7 +26,7 @@ export const SORTING_OPTIONS = [
   },
 ];
 
-export const PER_PAGE_OPRIONS = [
+export const PER_PAGE_OPTIONS = [
   {
     title: '2',
     option: 2,
