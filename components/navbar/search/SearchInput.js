@@ -12,7 +12,7 @@ const SEARCH_QUERY = gql`
 `;
 
 export default function SearchInput() {
-  // const [t, setT] = useState('');
+  const [t, setT] = useState('');
 
   const [searchItems, { data, loading, error }] =
     useLazyQuery(SEARCH_QUERY, {
@@ -33,11 +33,11 @@ export default function SearchInput() {
   console.log(data);
 
   const onChange = event => {
-    // event.preventDefault();
-    // setT(event.target.value);
+    event.preventDefault();
+    setT(event.target.value);
     searchItems({
       variables: {
-        searchTerm: event.target.value,
+        searchTerm: event.target.value || ' ',
       },
       suspend: false,
     });
