@@ -59,7 +59,10 @@ export default function Main() {
         <title>A2Z</title>
       </Head>
       {/* <Parallax y={[-80, 50]}> */}
-      <BannerSlider slides={slides} mediaByIndex={mediaByIndex} />
+      <BannerSlider
+        slides={slides}
+        mediaByIndex={mediaByIndex}
+      />
       {/* </Parallax> */}
       {/* <Parallax y={[-20, 20]}> */}
       <ItemsMainPage service={'products'} />
