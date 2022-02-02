@@ -1,6 +1,8 @@
-import { useLazyQuery } from '@apollo/client';
+import { useState } from 'react';
 import gql from 'graphql-tag';
-import { useEffect, useState } from 'react';
+import { useLazyQuery } from '@apollo/client';
+
+import debounce from 'lodash.debounce';
 
 // search query
 const SEARCH_QUERY = gql`
@@ -12,42 +14,35 @@ const SEARCH_QUERY = gql`
 `;
 
 export default function SearchInput() {
-  const [t, setT] = useState('');
+  const [term, setTerm] = useState('');
 
-  const [searchItems, { data, loading, error }] =
+  const [findItems, { data, loading, error }] =
     useLazyQuery(SEARCH_QUERY, {
       fetchPolicy: 'no-cache',
+      ssr: false,
     });
-
-  // useEffect(() => {
-  //   const shouldSearch = t !== '';
-  //   if (shouldSearch) {
-  //     searchItems();
-  //   }
-  // }, [t]);
 
   if (error) console.log('error');
   if (loading) console.log('loading');
 
+  const findItemsButChill = debounce(findItems, 450);
 
-  console.log(data);
-
-  const onChange = event => {
-    event.preventDefault();
-    setT(event.target.value);
-    searchItems({
+  const onChangeHandler = event => {
+    setTerm(event.target.value);
+    findItemsButChill({
       variables: {
-        searchTerm: event.target.value || ' ',
+        searchTerm: term,
       },
-      suspend: false,
     });
   };
+
+  console.log(data);
 
   return (
     <input
       type='text'
       placeholder='Search...'
-      onChange={onChange}
+      onChange={onChangeHandler}
     />
   );
 }
