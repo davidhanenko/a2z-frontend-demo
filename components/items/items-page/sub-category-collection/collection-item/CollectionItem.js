@@ -16,8 +16,9 @@ export default function CollectionItem({ item, items, collection }) {
     <CollectionItemStyles>
       <Link
         href={{
-          pathname: `/${service}/[items]/[collection]/[single]`,
+          pathname: `/[service]/[items]/[collection]/[single]`,
           query: {
+            service: `${service}`,
             items: `${items}`,
             collection: `${collection}`,
             single: `${formatUrlToRoute(item.itemTitle)}`,

@@ -4,7 +4,7 @@ import { useLazyQuery } from '@apollo/client';
 
 import debounce from 'lodash.debounce';
 
-import SearchDropdown from '../search-dropdown/SearchDropdown'
+import SearchDropdown from '../search-dropdown/SearchDropdown';
 import { SearchInputStyles } from './SearchInputStyles';
 
 // search query
@@ -18,6 +18,12 @@ const SEARCH_QUERY = gql`
         ]
       }
     ) {
+      items_categories {
+        category: category_title
+        items {
+          title
+        }
+      }
       id
       itemTitle: item_title
       description
@@ -25,30 +31,6 @@ const SEARCH_QUERY = gql`
         url
       }
     }
-    # services {
-    #   items {
-    #     id
-    #     title
-    #     category: items_categories {
-    #       id
-    #       singletem: single_items(
-    #         where: {
-    #           _or: [
-    #             { item_title_contains: $searchTerm }
-    #             { description_contains: $searchTerm }
-    #           ]
-    #         }
-    #       ) {
-    #         id
-    #         itemTitle: item_title
-    #         description
-    #         image {
-    #           url
-    #         }
-    #       }
-    #     }
-    #   }
-    # }
   }
 `;
 
@@ -77,8 +59,6 @@ export default function SearchInput() {
   };
 
   const foundItems = data?.singleItems || [];
-
-
 
   return (
     <>

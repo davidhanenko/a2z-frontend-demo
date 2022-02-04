@@ -118,7 +118,7 @@ const NavDropdown = React.forwardRef(function NavDropdown(
           {items?.map(item => (
             <Link
               href={{
-                pathname: `/products/[items]`,
+                pathname: `/${title}/[items]`,
                 query: {
                   items: `${formatUrlToRoute(item.title)}`,
                 },

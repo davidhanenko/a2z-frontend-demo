@@ -8,8 +8,9 @@ export default function SearchDropdown({ foundItems }) {
     <ul>
       {foundItems.map(el => (
         <Link
+        key={el.id}
           href={{
-            pathname: `[...items]/[item]`,
+            pathname: `/[...]/[item]`,
             query: {
               item: `${formatUrlToRoute(
                 el.itemTitle
