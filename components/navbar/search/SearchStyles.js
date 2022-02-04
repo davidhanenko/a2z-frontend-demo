@@ -19,6 +19,7 @@ const SearchStyles = styled.div`
     font-size: 3rem;
     color: grey;
     padding-left: 0.5rem;
+    z-index: 3;
   }
 `;
 

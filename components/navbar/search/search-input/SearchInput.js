@@ -18,11 +18,11 @@ const SEARCH_QUERY = gql`
         ]
       }
     ) {
-      category: items_categories {
+      category: items_categories(limit: 1){
         categoryTitle: category_title
-        items {
+        items(limit: 1) {
           title
-          services {
+          services(limit: 1) {
             service
           }
         }
@@ -30,7 +30,7 @@ const SEARCH_QUERY = gql`
       id
       itemTitle: item_title
       description
-      image {
+      image(limit: 1) {
         url
       }
     }

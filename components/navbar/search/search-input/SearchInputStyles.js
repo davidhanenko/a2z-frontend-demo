@@ -6,11 +6,12 @@ const SearchInputStyles = styled.input`
   width: 100%;
   outline: 0;
   padding-left: 3rem;
-  background: #f5f5f5;
+  background: var(--white);
+  position: relative;
   &::placeholder {
-    color: #d8d8d8;
+    color: var(--gray);
     font-weight: 100;
   }
 `;
 
-export {SearchInputStyles};
+export { SearchInputStyles };
