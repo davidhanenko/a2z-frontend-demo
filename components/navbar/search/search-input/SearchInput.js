@@ -18,10 +18,13 @@ const SEARCH_QUERY = gql`
         ]
       }
     ) {
-      items_categories {
-        category: category_title
+      category: items_categories {
+        categoryTitle: category_title
         items {
           title
+          services {
+            service
+          }
         }
       }
       id

@@ -6,19 +6,29 @@ export default function SearchDropdown({ foundItems }) {
 
   return (
     <ul>
-      {foundItems.map(el => (
+      {foundItems.map(item => (
         <Link
-        key={el.id}
+          key={item.id}
           href={{
-            pathname: `/[...]/[item]`,
+            pathname: `/[service]/[items]/[collection]/[singleItem]`,
             query: {
-              item: `${formatUrlToRoute(
-                el.itemTitle
+              collection: `${formatUrlToRoute(
+                item.category[0].categoryTitle
+              )}`,
+              items: `${formatUrlToRoute(
+                item.category[0].items[0].title
+              )}`,
+              service: `${formatUrlToRoute(
+                item.category[0].items[0].services[0]
+                  .service
+              )}`,
+              singleItem: `${formatUrlToRoute(
+                item.itemTitle
               )}`,
             },
           }}
         >
-          {el.itemTitle}
+          {item.itemTitle}
         </Link>
       ))}
     </ul>
