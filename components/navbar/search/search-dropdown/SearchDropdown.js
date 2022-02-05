@@ -60,8 +60,12 @@ export default function SearchDropdown({
           </DropdownItemStyles>
         </Link>
       ))}
-      
-      <AllResultsStyles>{foundItemsCount !== 0 ? foundItemsCount : `Nothing found`}</AllResultsStyles>
+
+      <AllResultsStyles>
+        {foundItemsCount !== 0
+          ? foundItemsCount
+          : `Nothing found`}
+      </AllResultsStyles>
       <CloseBtnStyles type='button' onClick={handleClose}>
         <MdOutlineClose />
       </CloseBtnStyles>
