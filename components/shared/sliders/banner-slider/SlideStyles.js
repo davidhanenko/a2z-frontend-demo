@@ -113,6 +113,7 @@ const SlideStyles = styled.div`
     height: 18rem;
 
     h2 {
+      background: transparent;
       margin: 0;
       font-size: 3.5rem;
       color: white;

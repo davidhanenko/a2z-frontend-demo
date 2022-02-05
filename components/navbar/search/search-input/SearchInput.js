@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import gql from 'graphql-tag';
 import { useLazyQuery } from '@apollo/client';
 
@@ -18,7 +18,7 @@ const SEARCH_QUERY = gql`
         ]
       }
     ) {
-      category: items_categories(limit: 1){
+      category: items_categories(limit: 1) {
         categoryTitle: category_title
         items(limit: 1) {
           title
@@ -46,22 +46,26 @@ export default function SearchInput() {
       ssr: false,
     });
 
-  if (error) console.log('error');
-  if (loading) console.log('loading');
-
   const findItemsButChill = debounce(findItems, 350);
 
   const onChangeHandler = event => {
     setTerm(event.target.value);
+  };
 
+  // set new value to search query on each input term change
+  useEffect(() => {
     findItemsButChill({
       variables: {
         searchTerm: term,
       },
     });
-  };
+  }, [term]);
 
   const foundItems = data?.singleItems || [];
+
+  const foundItemsCount = foundItems.length;
+  if (error) console.log('error');
+  // if (loading) return <h4>Loading...</h4>;
 
   return (
     <>
@@ -69,8 +73,15 @@ export default function SearchInput() {
         type='text'
         placeholder='Search...'
         onChange={onChangeHandler}
+        value={term}
       />
-      <SearchDropdown foundItems={foundItems} />
+      {term && (
+        <SearchDropdown
+          foundItems={foundItems}
+          setTerm={setTerm}
+          foundItemsCount={foundItemsCount}
+        />
+      )}
     </>
   );
 }
