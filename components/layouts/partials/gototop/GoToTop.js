@@ -26,7 +26,7 @@ export default function GoToTop() {
   return (
     <GoToTopButtonStyles onClick={handleClick} visible={isVisible}>
       <p className='btn-icon'>
-        <MdKeyboardArrowUp size='3rem' />
+        <MdKeyboardArrowUp />
       </p>
     </GoToTopButtonStyles>
   );

@@ -13,8 +13,8 @@ const PRODUCTS_PAGE_QUERY = gql`
         title
         category: items_categories(limit: 4) {
           id
-          single_item: single_items(limit: 1) {
-            item_title
+          singleItem: single_items(limit: 1) {
+            itemTitle: item_title
             image {
               url
             }

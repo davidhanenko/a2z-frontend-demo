@@ -25,6 +25,7 @@ const GoToTopButtonStyles = styled.button`
 
   .btn-icon {
     transform: scale(1.2);
+    font-size: 3rem;
     margin: 0;
     display: flex;
     justify-content: center;

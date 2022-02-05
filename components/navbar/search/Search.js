@@ -4,7 +4,7 @@ import { MdSearch } from 'react-icons/md';
 import { useScroll } from '../../../lib/useScroll';
 
 import { SearchStyles } from './SearchStyles';
-import SearchInput from './SearchInput';
+import SearchInput from './search-input/SearchInput';
 
 export default function Search() {
   const [isScroll, setIsScroll] = useState(false);
