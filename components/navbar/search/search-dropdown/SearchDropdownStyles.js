@@ -9,6 +9,13 @@ const SearchDropdownStyles = styled.ul`
   padding-bottom: 10rem;
   min-width: 25rem;
   background: var(--lightGray);
+
+  .no-items {
+    color: var(--gray);
+    em {
+      color: var(--dark);
+    }
+  }
 `;
 
 const DropdownItemStyles = styled.li`
@@ -41,7 +48,6 @@ const AllResultsStyles = styled.a`
   padding-right: 1rem;
 `;
 
-
 const CloseBtnStyles = styled.button`
   position: absolute;
   top: 0;
@@ -68,5 +74,5 @@ export {
   SearchDropdownStyles,
   DropdownItemStyles,
   CloseBtnStyles,
-  AllResultsStyles
+  AllResultsStyles,
 };

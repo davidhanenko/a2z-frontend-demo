@@ -8,7 +8,7 @@ import SearchDropdown from '../search-dropdown/SearchDropdown';
 import { SearchInputStyles } from './SearchInputStyles';
 
 // search query
-const SEARCH_QUERY = gql`
+export const SEARCH_QUERY = gql`
   query SEARCH_QUERY($searchTerm: String!) {
     singleItems(
       where: {

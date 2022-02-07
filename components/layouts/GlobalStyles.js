@@ -21,7 +21,7 @@ const GlobalStyles = createGlobalStyle`
     --maxWidth: 1400px;
     --minWidth: 850px;          
     --navHeight: 90px;
-    --searchHeight: 3rem; 
+    --searchHeight: 30px; 
     --bs: 0 12px 24px 0 rgba(0,0,0,0.09);
     box-sizing: border-box;
     font-size: 62.5%;
