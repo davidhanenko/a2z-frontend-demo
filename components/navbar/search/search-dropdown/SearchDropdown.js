@@ -52,16 +52,16 @@ export default function SearchDropdown({
               query: {
                 // service
                 service: `${formatUrlToRoute(
-                  item.category[0]?.items[0]?.services[0]
+                  item?.category[0]?.items[0]?.services[0]
                     ?.service
                 )}`,
                 // items category
                 items: `${formatUrlToRoute(
-                  item.category[0]?.items[0]?.title
+                  item?.category[0]?.items[0]?.title
                 )}`,
                 // items collection
                 collection: `${formatUrlToRoute(
-                  item.category[0].categoryTitle
+                  item?.category[0]?.categoryTitle
                 )}`,
                 // single item/finded item
                 singleItem: `${formatUrlToRoute(
