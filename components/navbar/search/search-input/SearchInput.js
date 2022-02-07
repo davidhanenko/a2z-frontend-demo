@@ -76,7 +76,7 @@ export default function SearchInput() {
         value={term}
         className={loading ? 'loading' : ''}
       />
-      {term && (
+      {term && foundItems && (
         <SearchDropdown
           foundItems={foundItems}
           term={term}
