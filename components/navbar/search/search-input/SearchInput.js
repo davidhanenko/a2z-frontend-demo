@@ -64,8 +64,8 @@ export default function SearchInput() {
   const foundItems = data?.singleItems || [];
 
   const foundItemsCount = foundItems.length;
+
   if (error) console.log('error');
-  // if (loading) return <h4>Loading...</h4>;
 
   return (
     <>
@@ -74,12 +74,15 @@ export default function SearchInput() {
         placeholder='Search...'
         onChange={onChangeHandler}
         value={term}
+        className={loading ? 'loading' : ''}
       />
       {term && (
         <SearchDropdown
           foundItems={foundItems}
+          term={term}
           setTerm={setTerm}
           foundItemsCount={foundItemsCount}
+          loading={loading}
         />
       )}
     </>

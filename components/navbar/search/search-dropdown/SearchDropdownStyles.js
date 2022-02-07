@@ -16,7 +16,7 @@ const DropdownItemStyles = styled.li`
   align-items: center;
   padding-left: 1rem;
   cursor: pointer;
-  -webkit-transition: all 0.35s;
+  -webkit-transition: all 0.3s;
   p {
     display: inline;
     padding: 0.2rem 0.6rem;
@@ -27,15 +27,18 @@ const DropdownItemStyles = styled.li`
   }
   &:hover {
     background: var(--white);
-    border-left: 2rem solid var(--gray);
+    border-left: 1rem solid var(--gray);
     p {
       color: var(--darkBlue);
     }
   }
 `;
 
-const AllResultsStyles = styled.div`
-
+const AllResultsStyles = styled.a`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-right: 1rem;
 `;
 
 

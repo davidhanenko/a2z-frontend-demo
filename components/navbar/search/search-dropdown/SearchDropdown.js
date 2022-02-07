@@ -13,13 +13,16 @@ import {
 
 export default function SearchDropdown({
   foundItems,
+  term,
   setTerm,
   foundItemsCount,
+  loading,
 }) {
   // close search dropdown / clear input
   const handleClose = () => {
     return setTerm('');
   };
+
   if (foundItems) {
     return (
       <SearchDropdownStyles>
@@ -61,10 +64,16 @@ export default function SearchDropdown({
           </Link>
         ))}
 
-        <AllResultsStyles>
-          {foundItemsCount !== 0
-            ? foundItemsCount
-            : `Nothing found`}
+        <AllResultsStyles href=''>
+          {!loading && foundItemsCount !== 0 ? (
+            <p>
+              See all(<span>{foundItemsCount}</span>) items
+            </p>
+          ) : (
+            <p>
+              Sorry. Nothing found for <em>{term}</em>
+            </p>
+          )}
         </AllResultsStyles>
         <CloseBtnStyles type='button' onClick={handleClose}>
           <MdOutlineClose />
