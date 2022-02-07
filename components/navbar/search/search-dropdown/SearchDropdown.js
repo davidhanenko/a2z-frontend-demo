@@ -44,7 +44,7 @@ export default function SearchDropdown({
 
   return (
     <SearchDropdownStyles>
-      {foundItems.map(item => (
+      {foundItems && foundItems.map(item => (
         <Link
           key={item.id}
           href={{
@@ -65,19 +65,19 @@ export default function SearchDropdown({
               )}`,
               // single item/finded item
               singleItem: `${formatUrlToRoute(
-                item.itemTitle
+                item?.itemTitle
               )}`,
             },
           }}
         >
           <DropdownItemStyles>
             <Image
-              src={item.image[0].url}
-              alt={item.itemTitle}
+              src={item?.image[0]?.url}
+              alt={item?.itemTitle}
               width={25}
               height={25}
             />
-            <p>{item.itemTitle}</p>
+            <p>{item?.itemTitle}</p>
           </DropdownItemStyles>
         </Link>
       ))}
