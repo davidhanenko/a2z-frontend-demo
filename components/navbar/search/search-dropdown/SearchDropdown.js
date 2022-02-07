@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -13,13 +14,33 @@ import {
 
 export default function SearchDropdown({
   foundItems,
+  term,
   setTerm,
   foundItemsCount,
+  loading,
 }) {
   // close search dropdown / clear input
   const handleClose = () => {
     return setTerm('');
   };
+
+  //link to view all found items
+  const SeeAllItemsLink = React.forwardRef(
+    ({ href }, ref) => {
+      return (
+        <AllResultsStyles
+          href={href}
+          ref={ref}
+          onClick={handleClose}
+        >
+          <p>
+            See all(<span>{foundItemsCount}</span>) items
+          </p>
+        </AllResultsStyles>
+      );
+    }
+  );
+
   if (foundItems) {
     return (
       <SearchDropdownStyles>
@@ -60,12 +81,24 @@ export default function SearchDropdown({
             </DropdownItemStyles>
           </Link>
         ))}
+        {!loading && foundItemsCount !== 0 ? (
+          <Link
+            href={{
+              pathname: `/search/[searchQuery]`,
+              query: {
+                searchQuery: term,
+              },
+            }}
+            passHref
+          >
+            <SeeAllItemsLink />
+          </Link>
+        ) : (
+          <li className='no-items'>
+            Sorry. Nothing found for <em>{term}</em>
+          </li>
+        )}
 
-        <AllResultsStyles>
-          {foundItemsCount !== 0
-            ? foundItemsCount
-            : `Nothing found`}
-        </AllResultsStyles>
         <CloseBtnStyles type='button' onClick={handleClose}>
           <MdOutlineClose />
         </CloseBtnStyles>

@@ -1,4 +1,14 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const glow = keyframes`
+  from {
+    box-shadow: 0 0 0px var(--lightBlue);
+  }
+
+  to {
+    box-shadow: 0 0 4px 2px var(--lightBlue);
+  }
+`;
 
 const SearchInputStyles = styled.input`
   border: 1px solid var(--lightGray);
@@ -11,6 +21,9 @@ const SearchInputStyles = styled.input`
   &::placeholder {
     color: var(--gray);
     font-weight: 100;
+  }
+  &.loading {
+    animation: ${glow} 0.6s ease-in-out infinite alternate;
   }
 `;
 
