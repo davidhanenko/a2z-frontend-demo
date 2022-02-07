@@ -40,69 +40,68 @@ export default function SearchDropdown({
       );
     }
   );
+  if (loading) return <h4>Loading...</h4>;
 
-  if (foundItems) {
-    return (
-      <SearchDropdownStyles>
-        {foundItems.map(item => (
-          <Link
-            key={item.id}
-            href={{
-              pathname: `/[service]/[items]/[collection]/[singleItem]`,
-              query: {
-                // service
-                service: `${formatUrlToRoute(
-                  item?.category[0]?.items[0]?.services[0]
-                    ?.service
-                )}`,
-                // items category
-                items: `${formatUrlToRoute(
-                  item?.category[0]?.items[0]?.title
-                )}`,
-                // items collection
-                collection: `${formatUrlToRoute(
-                  item?.category[0]?.categoryTitle
-                )}`,
-                // single item/finded item
-                singleItem: `${formatUrlToRoute(
-                  item.itemTitle
-                )}`,
-              },
-            }}
-          >
-            <DropdownItemStyles>
-              <Image
-                src={item.image[0].url}
-                alt={item.itemTitle}
-                width={25}
-                height={25}
-              />
-              <p>{item.itemTitle}</p>
-            </DropdownItemStyles>
-          </Link>
-        ))}
-        {!loading && foundItemsCount !== 0 ? (
-          <Link
-            href={{
-              pathname: `/search/[searchQuery]`,
-              query: {
-                searchQuery: term,
-              },
-            }}
-            passHref
-          >
-            <SeeAllItemsLink />
-          </Link>
-        ) : (
-          <li className='no-items'>
-            Sorry. Nothing found for <em>{term}</em>
-          </li>
-        )}
+  return (
+    <SearchDropdownStyles>
+      {foundItems.map(item => (
+        <Link
+          key={item.id}
+          href={{
+            pathname: `/[service]/[items]/[collection]/[singleItem]`,
+            query: {
+              // service
+              service: `${formatUrlToRoute(
+                item?.category[0]?.items[0]?.services[0]
+                  ?.service
+              )}`,
+              // items category
+              items: `${formatUrlToRoute(
+                item?.category[0]?.items[0]?.title
+              )}`,
+              // items collection
+              collection: `${formatUrlToRoute(
+                item?.category[0]?.categoryTitle
+              )}`,
+              // single item/finded item
+              singleItem: `${formatUrlToRoute(
+                item.itemTitle
+              )}`,
+            },
+          }}
+        >
+          <DropdownItemStyles>
+            <Image
+              src={item.image[0].url}
+              alt={item.itemTitle}
+              width={25}
+              height={25}
+            />
+            <p>{item.itemTitle}</p>
+          </DropdownItemStyles>
+        </Link>
+      ))}
+      {!loading && foundItemsCount !== 0 ? (
+        <Link
+          href={{
+            pathname: `/search/[searchQuery]`,
+            query: {
+              searchQuery: term,
+            },
+          }}
+          passHref
+        >
+          <SeeAllItemsLink />
+        </Link>
+      ) : (
+        <li className='no-items'>
+          Sorry. Nothing found for <em>{term}</em>
+        </li>
+      )}
 
-        <CloseBtnStyles type='button' onClick={handleClose}>
-          <MdOutlineClose />
-        </CloseBtnStyles>
-      </SearchDropdownStyles>
-    );
-  }
+      <CloseBtnStyles type='button' onClick={handleClose}>
+        <MdOutlineClose />
+      </CloseBtnStyles>
+    </SearchDropdownStyles>
+  );
 }
