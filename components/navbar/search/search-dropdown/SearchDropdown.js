@@ -52,12 +52,12 @@ export default function SearchDropdown({
               query: {
                 // service
                 service: `${formatUrlToRoute(
-                  item.category[0].items[0].services[0]
-                    .service
+                  item.category[0]?.items[0]?.services[0]
+                    ?.service
                 )}`,
                 // items category
                 items: `${formatUrlToRoute(
-                  item.category[0].items[0].title
+                  item.category[0]?.items[0]?.title
                 )}`,
                 // items collection
                 collection: `${formatUrlToRoute(
