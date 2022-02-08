@@ -40,11 +40,11 @@ export default function SearchDropdown({
       );
     }
   );
-  if (loading) return <h4>Loading...</h4>;
+
 
   return (
     <SearchDropdownStyles>
-      {foundItems && foundItems.map(item => (
+      {!loading && foundItems && foundItems.map(item => (
         <Link
           key={item.id}
           href={{
