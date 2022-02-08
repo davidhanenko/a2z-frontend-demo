@@ -1,6 +1,8 @@
 import { useQuery } from '@apollo/client';
+import Loader from 'react-loader-spinner';
 import { SEARCH_QUERY } from '../../components/navbar/search/search-input/SearchInput';
 import AllSearchResults from '../../components/navbar/search/search-page/AllSearchResults';
+
 
 export default function Search({ query }) {
   const term = query.search;
@@ -13,6 +15,7 @@ export default function Search({ query }) {
 
   const foundItems = data?.singleItems || [];
 
+if(loading) return <Loader />
   return (
     <AllSearchResults foundItems={foundItems} term={term} />
   );
