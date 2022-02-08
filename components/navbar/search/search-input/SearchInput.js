@@ -67,6 +67,7 @@ export default function SearchInput() {
 
   if (error) console.log('error');
 
+
   return (
     <>
       <SearchInputStyles
@@ -76,7 +77,7 @@ export default function SearchInput() {
         value={term}
         className={loading ? 'loading' : ''}
       />
-      {term && foundItems && (
+      {term && !loading && foundItems && (
         <SearchDropdown
           foundItems={foundItems}
           term={term}
