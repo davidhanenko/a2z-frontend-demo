@@ -19,16 +19,15 @@ function PaginationStateProvider({ children }) {
     SORT_ITEMS_BY_DEFAULT
   );
 
-  // get anount items showed per page from localStarage depend on selected option
+  // get amount of items showed per page from localStarage depend on selected option
   useEffect(() => {
     const value = parseInt(
       localStorage.getItem('showPerPage')
     );
     const itemsPerPage = !!value ? value : PER_PAGE_DEFAULT;
-    setItemsPerPage(itemsPerPage);
+    return setItemsPerPage(itemsPerPage);
   }, [itemsPerPage]);
 
-  
   return (
     <LocalStateProvider
       value={{

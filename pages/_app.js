@@ -10,6 +10,7 @@ import '../styles/nprogress.css';
 import withData from '../lib/withData';
 
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
+import { PaginationStateProvider } from '../context/paginationState';
 
 // smoothscroll polifill - safari
 if (typeof window !== 'undefined') {
@@ -17,29 +18,38 @@ if (typeof window !== 'undefined') {
   window.__forceSmoothScrollPolyfill__ = true;
 }
 
-
-Router.events.on('routeChangeStart', () => NProgress.start());
-Router.events.on('routeChangeComplete', () => NProgress.done());
-Router.events.on('routeChangeError', () => NProgress.done());
+Router.events.on('routeChangeStart', () =>
+  NProgress.start()
+);
+Router.events.on('routeChangeComplete', () =>
+  NProgress.done()
+);
+Router.events.on('routeChangeError', () =>
+  NProgress.done()
+);
 
 // change LayoutWrapper to getLayout in production if not find other options
 
 function MyApp({ Component, pageProps, apollo }) {
-
   return (
     <ApolloProvider client={apollo}>
       <ParallaxProvider>
         <ScrollProvider>
-          <LayoutWrapper {...pageProps}>
-            <Component {...pageProps} />
-          </LayoutWrapper>
+          <PaginationStateProvider>
+            <LayoutWrapper {...pageProps}>
+              <Component {...pageProps} />
+            </LayoutWrapper>
+          </PaginationStateProvider>
         </ScrollProvider>
       </ParallaxProvider>
     </ApolloProvider>
   );
 }
 
-MyApp.getInitialProps = async function ({ Component, ctx}) {
+MyApp.getInitialProps = async function ({
+  Component,
+  ctx,
+}) {
   let pageProps = {};
   if (Component.getInitialProps) {
     pageProps = await Component.getInitialProps(ctx);

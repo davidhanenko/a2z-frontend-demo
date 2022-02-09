@@ -44,8 +44,14 @@ const DropdownItemStyles = styled.li`
 const AllResultsStyles = styled.a`
   position: absolute;
   bottom: 0;
-  right: 0;
-  padding-right: 1rem;
+  left: 1rem;
+  p {
+    color: var(--darkBlue);
+    transition: color 0.25s;
+    &:hover {
+      color: var(--darkBlueHover);
+    }
+  }
 `;
 
 const CloseBtnStyles = styled.button`

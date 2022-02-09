@@ -44,11 +44,11 @@ export default function SearchDropdown({
 
   return (
     <SearchDropdownStyles>
-      {!loading && foundItems && foundItems.map(item => (
+      {foundItems && foundItems.map(item => (
         <Link
           key={item.id}
           href={{
-            pathname: `/[service]/[items]/[collection]/[singleItem]`,
+            pathname: '/[service]/[items]/[collection]/[singleItem]',
             query: {
               // service
               service: `${formatUrlToRoute(
@@ -84,7 +84,7 @@ export default function SearchDropdown({
       {!loading && foundItemsCount !== 0 ? (
         <Link
           href={{
-            pathname: `/search/[searchQuery]`,
+            pathname: '/search/[searchQuery]',
             query: {
               searchQuery: term,
             },
