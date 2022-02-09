@@ -34,7 +34,7 @@ export default function SearchDropdown({
           onClick={handleClose}
         >
           <p>
-            See all(<span>{foundItemsCount}</span>) items
+            See all search results
           </p>
         </AllResultsStyles>
       );
@@ -44,47 +44,50 @@ export default function SearchDropdown({
 
   return (
     <SearchDropdownStyles>
-      {!loading && foundItems && foundItems.map(item => (
-        <Link
-          key={item.id}
-          href={{
-            pathname: `/[service]/[items]/[collection]/[singleItem]`,
-            query: {
-              // service
-              service: `${formatUrlToRoute(
-                item?.category[0]?.items[0]?.services[0]
-                  ?.service
-              )}`,
-              // items category
-              items: `${formatUrlToRoute(
-                item?.category[0]?.items[0]?.title
-              )}`,
-              // items collection
-              collection: `${formatUrlToRoute(
-                item?.category[0]?.categoryTitle
-              )}`,
-              // single item/finded item
-              singleItem: `${formatUrlToRoute(
-                item?.itemTitle
-              )}`,
-            },
-          }}
-        >
-          <DropdownItemStyles>
-            <Image
-              src={item?.image[0]?.url}
-              alt={item?.itemTitle}
-              width={25}
-              height={25}
-            />
-            <p>{item?.itemTitle}</p>
-          </DropdownItemStyles>
-        </Link>
-      ))}
+      {foundItems &&
+        foundItems.map(item => (
+          <Link
+            key={item.id}
+            href={{
+              pathname:
+                '/[service]/[items]/[collection]/[singleItem]',
+              query: {
+                // service
+                service: `${formatUrlToRoute(
+                  item?.category[0]?.items[0]?.services[0]
+                    ?.service
+                )}`,
+                // items category
+                items: `${formatUrlToRoute(
+                  item?.category[0]?.items[0]?.title
+                )}`,
+                // items collection
+                collection: `${formatUrlToRoute(
+                  item?.category[0]?.categoryTitle
+                )}`,
+                // single item/finded item
+                singleItem: `${formatUrlToRoute(
+                  item?.itemTitle
+                )}`,
+              },
+            }}
+          >
+            <DropdownItemStyles>
+              <Image
+                src={item?.image[0]?.url}
+                alt={item?.itemTitle}
+                width={25}
+                height={25}
+              />
+              <p>{item?.itemTitle}</p>
+            </DropdownItemStyles>
+          </Link>
+        ))}
+      <p className="found-items">{foundItemsCount} item(s) found</p>
       {!loading && foundItemsCount !== 0 ? (
         <Link
           href={{
-            pathname: `/search/[searchQuery]`,
+            pathname: '/search/[searchQuery]',
             query: {
               searchQuery: term,
             },

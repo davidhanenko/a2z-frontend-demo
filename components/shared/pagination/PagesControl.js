@@ -18,7 +18,7 @@ export default function PagesControl({
       <Link href={`/${currentUrl}/?page=${+page - 1}`}>
         <a aria-disabled={page <= 1}>&lt; Prev</a>
       </Link>
-      {/* create an array of length equal to pages number */}
+      {/* create an array of length equal to pages count */}
       {pageCount &&
         Array.from(Array(pageCount)).map((el, i) => (
           <Link

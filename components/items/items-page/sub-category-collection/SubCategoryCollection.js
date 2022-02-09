@@ -44,7 +44,6 @@ export default function SubCategoryCollection({
   items,
   collection,
   page,
-  sort,
 }) {
   const { itemsPerPage, sortItemsBy } = usePagination();
 

@@ -1,18 +1,32 @@
 import styled from 'styled-components';
 
-const AllSearchResultsStyles = styled.div`
-  margin-top: calc(
-    var(--navHeight) + var(--searchHeight) + 3rem
-  );
+const SearchResultsContainerStyles = styled.div`
 
-  display: flex;
-  flex-wrap: wrap;
+  max-width: var(--maxWidth);
+  padding: 5rem;
+  @media (max-width: 500px) {
+    padding: 0 3rem;
+  }
+`;
+
+const AllSearchResultsStyles = styled.div`
   text-align: center;
+  display: grid;
+  grid-gap: 3rem;
+  justify-content: center;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(200px, 1fr)
+  );
+  @media (max-width: 500px) {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(135px, 1fr)
+    );
+  }
 `;
 
 const FoundItemStyles = styled.div`
-  flex: 1 1 200px;
-  padding: 2rem;
   h3 {
     font-weight: 300;
     margin: 0;
@@ -25,4 +39,8 @@ const FoundItemStyles = styled.div`
   }
 `;
 
-export { AllSearchResultsStyles, FoundItemStyles };
+export {
+  AllSearchResultsStyles,
+  FoundItemStyles,
+  SearchResultsContainerStyles,
+};

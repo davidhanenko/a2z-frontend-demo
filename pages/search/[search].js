@@ -1,23 +1,75 @@
+import gql from 'graphql-tag';
 import { useQuery } from '@apollo/client';
-import Loader from 'react-loader-spinner';
-import { SEARCH_QUERY } from '../../components/navbar/search/search-input/SearchInput';
-import AllSearchResults from '../../components/navbar/search/search-page/AllSearchResults';
+import styled from 'styled-components';
 
+import Loader from 'react-loader-spinner';
+import {
+  PaginationStateProvider,
+} from '../../context/paginationState';
+
+import AllSearchResults from '../../components/navbar/search/search-page/AllSearchResults';
+import Pagination from '../../components/shared/pagination/Pagination';
+
+// query to found quantity of found items
+const SEARCH_PAGINATION_QUERY = gql`
+  query SEARCH_PAGINATION_QUERY(
+    $searchTerm: String!
+  ) {
+    singleItems(
+      where: {
+        _or: [
+          { item_title_contains: $searchTerm }
+          { description_contains: $searchTerm }
+        ]
+      }
+    ) {
+      id
+    }
+  }
+`;
+
+
+const PaginationStyles = styled.div`
+  margin-top: calc(var(--navHeight) + var(--searchHeight) + 5rem);
+`;
 
 export default function Search({ query }) {
+  // curretnt page
+  const page = parseInt(query.page);
+  // search term
   const term = query.search;
 
-  const { data, loading, error } = useQuery(SEARCH_QUERY, {
-    variables: {
-      searchTerm: term,
-    },
-  });
+  const { data, loading, error } = useQuery(
+    SEARCH_PAGINATION_QUERY,
+    {
+      variables: {
+        searchTerm: term,
+      },
+    }
+  );
 
-  const foundItems = data?.singleItems || [];
+// count of found items 
+  const itemsCount = data?.singleItems?.length;
 
-if(loading) return <Loader />
+  // url for pagination component
+  const currentUrl = `search/${term}`;
+
+  if (loading) return <Loader />;
+
   return (
-    <AllSearchResults foundItems={foundItems} term={term} />
+    <PaginationStateProvider>
+      <PaginationStyles>
+        <Pagination
+          page={page || 1}
+          currentUrl={currentUrl}
+          itemsCount={itemsCount}
+        />
+      </PaginationStyles>
+      <AllSearchResults
+        term={term}
+        page={page || 1}
+      />
+    </PaginationStateProvider>
   );
 }
 
