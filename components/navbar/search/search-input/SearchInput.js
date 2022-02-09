@@ -16,7 +16,7 @@ const SEARCH_QUERY = gql`
           { item_title_contains: $searchTerm }
           { description_contains: $searchTerm }
         ]
-      }
+      } 
     ) {
       category: items_categories(limit: 1) {
         categoryTitle: category_title
@@ -65,6 +65,9 @@ export default function SearchInput() {
 
   const foundItemsCount = foundItems.length;
 
+  const itemsToRender = foundItems.slice(0, 5);
+
+
   if (error) console.log('error');
 
 
@@ -79,7 +82,7 @@ export default function SearchInput() {
       />
       {term && !loading && foundItems && (
         <SearchDropdown
-          foundItems={foundItems}
+          foundItems={itemsToRender}
           term={term}
           setTerm={setTerm}
           foundItemsCount={foundItemsCount}

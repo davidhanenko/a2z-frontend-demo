@@ -11,7 +11,6 @@ const DropdownSelectStyles = styled.div`
     background: transparent;
     padding: 0.5rem 1rem;
     color: var(--gray);
-    transition: all 2s;
     svg {
       color: var(--gray);
       transform: scale(1.7);
@@ -41,7 +40,7 @@ const DropdownSelectStyles = styled.div`
       border: none;
       color: var(--dark);
       background: none;
-      transition: all 0.2s;
+      transition: all 0.25s;
       &:hover {
         background: var(--dark);
         color: var(--offWhite);

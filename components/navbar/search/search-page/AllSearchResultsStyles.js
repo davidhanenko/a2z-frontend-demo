@@ -12,7 +12,7 @@ const SearchResultsContainerStyles = styled.div`
 const AllSearchResultsStyles = styled.div`
   text-align: center;
   display: grid;
-  grid-gap: 2rem;
+  grid-gap: 3rem;
   justify-content: center;
   grid-template-columns: repeat(
     auto-fill,

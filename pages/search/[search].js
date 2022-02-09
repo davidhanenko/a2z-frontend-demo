@@ -10,7 +10,7 @@ import {
 import AllSearchResults from '../../components/navbar/search/search-page/AllSearchResults';
 import Pagination from '../../components/shared/pagination/Pagination';
 
-// search query
+// query to found quantity of found items
 const SEARCH_PAGINATION_QUERY = gql`
   query SEARCH_PAGINATION_QUERY(
     $searchTerm: String!
@@ -30,11 +30,13 @@ const SEARCH_PAGINATION_QUERY = gql`
 
 
 const PaginationStyles = styled.div`
-  margin-top: 15rem;
+  margin-top: calc(var(--navHeight) + var(--searchHeight) + 5rem);
 `;
 
 export default function Search({ query }) {
+  // curretnt page
   const page = parseInt(query.page);
+  // search term
   const term = query.search;
 
   const { data, loading, error } = useQuery(
@@ -46,6 +48,7 @@ export default function Search({ query }) {
     }
   );
 
+// count of found items 
   const itemsCount = data?.singleItems?.length;
 
   // url for pagination component
@@ -65,7 +68,6 @@ export default function Search({ query }) {
       <AllSearchResults
         term={term}
         page={page || 1}
-        sort={'item_title:desc'}
       />
     </PaginationStateProvider>
   );

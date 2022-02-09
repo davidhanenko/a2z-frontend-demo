@@ -10,6 +10,12 @@ const SearchDropdownStyles = styled.ul`
   min-width: 25rem;
   background: var(--lightGray);
 
+  .found-items {
+    font-weight: 100;
+    font-size: 1.2rem;
+    padding-left: 1rem;
+  }
+
   .no-items {
     color: var(--gray);
     em {
@@ -44,13 +50,15 @@ const DropdownItemStyles = styled.li`
 const AllResultsStyles = styled.a`
   position: absolute;
   bottom: 0;
-  left: 1rem;
-  p {
-    color: var(--darkBlue);
-    transition: color 0.25s;
-    &:hover {
-      color: var(--darkBlueHover);
-    }
+  text-align: center;
+  background: var(--lightBlueHover);
+  width: 100%;
+  transition: all 0.3s;
+  color: var(--blue);
+
+  &:hover {
+    color: var(--dark);
+    background: var(--lightBlueHover);
   }
 `;
 

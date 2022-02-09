@@ -57,7 +57,6 @@ export default function ProductsPage({ query }) {
         items={items}
         collection={collection}
         page={page || 1}
-        sort={'item_title:desc'}
       />
     </PaginationStateProvider>
   );
