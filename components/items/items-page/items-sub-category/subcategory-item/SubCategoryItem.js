@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { formatUrlToRoute } from '../../../../../helpers/formatUrl';
 
 import { SubCategoryItemStyles } from './SubCategoryItemStyles';
+import placeholderImg from '../../../../../public/img/1.png'
 
 export default function SubCategoryListItem({ subCategory, itemsTitle, service }) {
   return (
@@ -13,7 +14,9 @@ export default function SubCategoryListItem({ subCategory, itemsTitle, service }
           pathname: `/${service}/[items]/[collection]`,
           query: {
             items: `${formatUrlToRoute(itemsTitle)}`,
-            collection: `${formatUrlToRoute(subCategory.category_title)}`,
+            collection: `${formatUrlToRoute(
+              subCategory.category_title
+            )}`,
           },
         }}
       >
@@ -24,6 +27,8 @@ export default function SubCategoryListItem({ subCategory, itemsTitle, service }
             width={200}
             height={200}
             alt={subCategory.single_item[0].item_title}
+            placeholder='blur'
+            blurDataURL={placeholderImg}
           />
         </a>
       </Link>

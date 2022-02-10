@@ -5,14 +5,14 @@ import ReactMarkdown from 'react-markdown';
 
 import capitalizeStr from '../../../../helpers/capitalizeStr';
 
-
 import { SingleItemStyles } from './SingleItemStyles';
 import ImagesSlider from '../../../shared/sliders/images-slider/ImagesSlider';
-
-
+import placeholderImg from '../../../../public/img/1.png';
 
 export default function SingleItem({ singleItem }) {
-  const [sizePrice, setSizePrise] = useState([...singleItem.sizePrices]);
+  const [sizePrice, setSizePrise] = useState([
+    ...singleItem.sizePrices,
+  ]);
   const [index, setIndex] = useState(0);
 
   // sort by prices, to show list of availiable sizes of item
@@ -21,22 +21,26 @@ export default function SingleItem({ singleItem }) {
   // show price according to size of item(if apply)
   const handlePrice = e => {
     // find index of choosen size
-    let sizeIndex = sizePrice.findIndex(el => el.size == e.target.value);
+    let sizeIndex = sizePrice.findIndex(
+      el => el.size == e.target.value
+    );
     // use index to display proper price
     setIndex(sizeIndex);
   };
 
-   const SLIDE_COUNT = singleItem.image.length;
+  const SLIDE_COUNT = singleItem.image.length;
 
-   const slides = Array.from(Array(SLIDE_COUNT).keys());
+  const slides = Array.from(Array(SLIDE_COUNT).keys());
 
-   const itemsByIndex = index =>
-     singleItem.image[index % singleItem.image.length];
+  const itemsByIndex = index =>
+    singleItem.image[index % singleItem.image.length];
 
   return (
     <SingleItemStyles>
       <Head>
-        <title>{capitalizeStr(singleItem.itemTitle)} - A2Z</title>
+        <title>
+          {capitalizeStr(singleItem.itemTitle)} - A2Z
+        </title>
       </Head>
       <div className='item-image-container'>
         {SLIDE_COUNT > 1 ? (
@@ -52,12 +56,16 @@ export default function SingleItem({ singleItem }) {
             width={300}
             height={300}
             layout='responsive'
+            placeholder='blur'
+            blurDataURL={placeholderImg}
           />
         )}
       </div>
 
       <div className='item-description-container'>
-        <h4 className='single-item-title'>{singleItem.itemTitle}</h4>
+        <h4 className='single-item-title'>
+          {singleItem.itemTitle}
+        </h4>
 
         <hr />
         {/* show price related to size or single price */}
@@ -65,13 +73,17 @@ export default function SingleItem({ singleItem }) {
           ${sizePrice[index]?.price || singleItem.price}
         </h5>
 
-        <h5 className='available-sizes'>Available sizes:</h5>
+        <h5 className='available-sizes'>
+          Available sizes:
+        </h5>
 
         {sizePrice.map((size, i) => (
           <input
             key={size.id}
             className={` size-input-btn ${
-              i === index ? 'size-input-btn active-size-btn' : ''
+              i === index
+                ? 'size-input-btn active-size-btn'
+                : ''
             }`}
             type='button'
             onClick={handlePrice}

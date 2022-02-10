@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { formatUrlToRoute } from '../../../../../helpers/formatUrl';
 
 import { ItemStyles, ImageOverlay } from './ItemStyles';
+import placeholderImg from '../../../../../public/img/1.png';
 
 export default function Item({ serviceItems, service }) {
   return (
@@ -34,6 +35,8 @@ export default function Item({ serviceItems, service }) {
                 width={100}
                 height={100}
                 alt={item.singleItem[0].itemTitle}
+                placeholder='blur'
+                blurDataURL={placeholderImg}
               />
             </div>
           ))}
