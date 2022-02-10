@@ -5,15 +5,15 @@ import { formatUrlToRoute } from '../../helpers/formatUrl';
 import MenuDropdown from './MenuDropdown';
 import { MenuLinkStyles } from './MenuLinkStyles';
 
-export default function MenuLink({ menuItem }) {
- 
-
+export default function MenuLink({ service, menuItem }) {
   return (
     <MenuLinkStyles>
       <Link
         href={{
-          pathname: '/products/[items]',
-          query: { items: `${formatUrlToRoute(menuItem.title)}` },
+          pathname: `/${service}/[items]`,
+          query: {
+            items: `${formatUrlToRoute(menuItem.title)}`,
+          },
         }}
         passHref
       >

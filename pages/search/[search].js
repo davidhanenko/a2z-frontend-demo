@@ -7,7 +7,7 @@ import {
   PaginationStateProvider,
 } from '../../context/paginationState';
 
-import AllSearchResults from '../../components/navbar/search/search-page/AllSearchResults';
+import AllSearchResults from '../../components/search/search-page/AllSearchResults';
 import Pagination from '../../components/shared/pagination/Pagination';
 
 // query to found quantity of found items

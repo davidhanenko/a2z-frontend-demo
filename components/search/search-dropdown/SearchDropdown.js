@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import { MdOutlineClose } from 'react-icons/md';
 
-import { formatUrlToRoute } from '../../../../helpers/formatUrl';
+import { formatUrlToRoute } from '../../../helpers/formatUrl';
 import {
   AllResultsStyles,
   CloseBtnStyles,

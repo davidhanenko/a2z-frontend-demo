@@ -9,20 +9,21 @@ export default function Silde({
   setAnimation,
   animation,
 }) {
-  const Btn = React.forwardRef(({ onClick, href, title }, ref) => {
-    return (
-      <a href={href} ref={ref}>
-        {title}
-      </a>
-    );
-  });
+  const Btn = React.forwardRef(
+    ({ onClick, href, title }, ref) => {
+      return (
+        <a href={href} ref={ref}>
+          {title}
+        </a>
+      );
+    }
+  );
 
   useEffect(() => {
     let mounted = true;
     mounted && setAnimation(false);
     return () => (mounted = false);
   }, [animation]);
-
 
   return (
     <SlideStyles>
@@ -32,14 +33,13 @@ export default function Silde({
         objectFit='cover'
         layout='fill'
         alt=''
-        placeholder='blur'
+        priority='true'
       />
       <div className='image-1'>
         <Image
           width={200}
           height={200}
           src={mediaByIndex(index).img1}
-          placeholder='blur'
         />
       </div>
       <div className='image-2'>
@@ -47,7 +47,6 @@ export default function Silde({
           width={200}
           height={200}
           src={mediaByIndex(index).img2}
-          placeholder='blur'
         />
       </div>
       <a href={mediaByIndex(index).link}>

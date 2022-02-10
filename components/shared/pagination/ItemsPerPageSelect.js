@@ -17,7 +17,8 @@ export default function ItemsPerPageSelect({}) {
     // set items amount to local storage
     localStorage.setItem('showPerPage', e.target.value);
     // switch the page to 1st when change amount of items showed on page
-    router.push(`?page=1`);
+   
+    // router.push(`?page=1`);
   };
 
   return (

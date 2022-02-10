@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { MdSearch } from 'react-icons/md';
 
-import { useScroll } from '../../../lib/useScroll';
+import { useScroll } from '../../lib/useScroll';
 
 import { SearchStyles } from './SearchStyles';
 import SearchInput from './search-input/SearchInput';
