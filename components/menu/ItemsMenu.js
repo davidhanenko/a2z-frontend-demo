@@ -9,7 +9,10 @@ import useWindowDimensions from '../../lib/windowDimensions';
 
 import MenuLink from './MenuLink';
 import MenuTree from './MenuTree';
-import { ItemsMenuStyles, MenuButtonStyles } from './ItemsMenuStyles';
+import {
+  ItemsMenuStyles,
+  MenuButtonStyles,
+} from './ItemsMenuStyles';
 
 const SERVICE_MENU_QUERY = gql`
   query SERVICE_MENU_QUERY($service: String!) {
@@ -30,13 +33,22 @@ export default function ItemsMenu({}) {
   const router = useRouter();
   const service = router.asPath.split('/')[1];
 
-  const { data, error, loading } = useQuery(SERVICE_MENU_QUERY, {
-    variables: {
-      service: service,
-    },
-  });
+  const { data, error, loading } = useQuery(
+    SERVICE_MENU_QUERY,
+    {
+      variables: {
+        service: service,
+      },
+    }
+  );
 
-  const { isMenuOpen, setMenuOpen, btnClicked, setBtnClicked, closeMenu } = useMenu();
+  const {
+    isMenuOpen,
+    setMenuOpen,
+    btnClicked,
+    setBtnClicked,
+    closeMenu,
+  } = useMenu();
 
   // ref for side menu container
   const sideMenuRef = useRef();
@@ -114,6 +126,7 @@ export default function ItemsMenu({}) {
         <div className='menu-links'>
           {menuItems?.map(menuItem => (
             <MenuLink
+              service={service}
               menuItem={menuItem}
               key={menuItem.id}
             />

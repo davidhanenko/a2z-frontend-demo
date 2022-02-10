@@ -3,9 +3,9 @@ import { useQuery } from '@apollo/client';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { usePagination } from '../../../../context/paginationState';
+import { usePagination } from '../../../context/paginationState';
 
-import Loader from '../../../shared/loader/Loader';
+import Loader from '../../shared/loader/Loader';
 import {
   AllSearchResultsStyles,
   FoundItemStyles,
@@ -50,6 +50,7 @@ const SEARCH_QUERY = gql`
   }
 `;
 
+// search results component
 export default function AllSearchResults({
   term,
   page,

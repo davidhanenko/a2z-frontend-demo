@@ -11,7 +11,7 @@ import useWindowDimensions from '../../lib/windowDimensions';
 import NavDropdown from './NavDropdown';
 import { NavStyles, NavButtonStyles } from './NavStyles';
 import { TOGGLE_WIDTH } from '../../config';
-import Search from './search/Search';
+import Search from '../search/Search';
 
 const PRODUCTS_QUERY = gql`
   query PRODUCTS_QUERY {
