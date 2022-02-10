@@ -33,7 +33,6 @@ export default function Silde({
         objectFit='cover'
         layout='fill'
         alt=''
-        priority='true'
       />
       <div className='image-1'>
         <Image
