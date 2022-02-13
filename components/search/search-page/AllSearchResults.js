@@ -3,9 +3,11 @@ import { useQuery } from '@apollo/client';
 import Link from 'next/link';
 import Image from 'next/image';
 
+
 import { usePagination } from '../../../context/paginationState';
 
-import Loader from '../../shared/loader/Loader';
+import placeholderImg from '../../../public/img/img.svg';
+import Loader from '../../shared/loaders/Loader';
 import {
   AllSearchResultsStyles,
   FoundItemStyles,
@@ -85,6 +87,8 @@ export default function AllSearchResults({
               alt={item.itemTitle}
               width={200}
               height={200}
+              placeholder='blur'
+              blurDataURL={placeholderImg}
             />
             <h3>{item.itemTitle}</h3>
             <p>from...</p>

@@ -25,6 +25,10 @@ const ItemsMainPageStyles = styled.section`
       min-width: 100%;
     }
   }
+
+  img {
+    transition: 0.3s;
+  }
 `;
 
 export { ItemsMainPageStyles };

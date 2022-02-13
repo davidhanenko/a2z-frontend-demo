@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import placeholderImg from '../../../../public/img/img.svg';
 import { ImageSlideStyles} from './ImageSlideStyles';
 
 export default function ImageSlide({ itemsByIndex, index, title }) {
@@ -12,6 +13,8 @@ export default function ImageSlide({ itemsByIndex, index, title }) {
         width={300}
         height={300}
         layout='responsive'
+        placeholder='blur'
+        blurDataURL={placeholderImg}
       />
     </ImageSlideStyles>
   );

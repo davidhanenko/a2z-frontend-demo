@@ -4,7 +4,7 @@ import { formatUrlToRoute } from '../../../../helpers/formatUrl';
 
 import { ItemsSlideStyles, ImageOverlay } from './ItemsSlideStyles';
 
-import placeholderImg from '../../../../public/img/1.png'
+import placeholderImg from '../../../../public/img/img.svg'
 
 export default function Slide({ itemsByIndex, index, service }) {
 

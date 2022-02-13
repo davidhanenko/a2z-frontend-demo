@@ -7,7 +7,7 @@ import capitalizeStr from '../../../../helpers/capitalizeStr';
 
 import { SingleItemStyles } from './SingleItemStyles';
 import ImagesSlider from '../../../shared/sliders/images-slider/ImagesSlider';
-import placeholderImg from '../../../../public/img/1.png';
+import placeholderImg from '../../../../public/img/img.svg';
 
 export default function SingleItem({ singleItem }) {
   const [sizePrice, setSizePrise] = useState([
