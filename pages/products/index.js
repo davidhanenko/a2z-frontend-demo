@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 import { useQuery } from '@apollo/client';
 
 import Items from '../../components/items/items-page/items/Items';
-import Loader from '../../components/shared/loader/Loader';
+import Loader from '../../components/shared/loaders/Loader';
 
 
 const PRODUCTS_PAGE_QUERY = gql`
