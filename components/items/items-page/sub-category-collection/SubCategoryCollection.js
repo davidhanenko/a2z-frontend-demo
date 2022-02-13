@@ -9,7 +9,7 @@ import { formatUrlToDbName } from '../../../../helpers/formatUrl';
 
 import { SubCategoryCollectionStyles } from './SubCategoryCollectionStyles';
 import CollectionItem from './collection-item/CollectionItem';
-import Loader from '../../../shared/loader/Loader';
+import Loader from '../../../shared/loaders/Loader';
 
 const ITEMS_SUBCATEGORY_COLLECTION_QUERY = gql`
   query ITEMS_SUBCATEGORY_COLLECTION_QUERY(

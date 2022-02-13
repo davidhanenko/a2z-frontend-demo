@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 
 import { formatUrlToDbName } from '../../../../helpers/formatUrl';
 import SingleItem from '../../../../components/items/items-page/single-item/SingleItem';
-import Loader from '../../../../components/shared/loader/Loader';
+import Loader from '../../../../components/shared/loaders/Loader';
 
 const SINGLE_ITEM_QUERY = gql`
   query SINGLE_ITEM_QUERY($item: String!) {
