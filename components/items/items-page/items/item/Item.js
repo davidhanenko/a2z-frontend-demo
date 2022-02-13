@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { formatUrlToRoute } from '../../../../../helpers/formatUrl';
 
 import { ItemStyles, ImageOverlay } from './ItemStyles';
-import placeholderImg from '../../../../../public/img/1.png';
+import placeholderImg from '../../../../../public/img/img.svg';
 
 export default function Item({ serviceItems, service }) {
   return (

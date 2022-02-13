@@ -48,7 +48,6 @@ export default function ItemsMainPage({ service }) {
 
   return (
     <ItemsMainPageStyles>
-      <ImgPlaceholder />
       <h2>Products</h2>
       {data && (
         <ItemsSlider

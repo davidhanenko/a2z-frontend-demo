@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 import { formatUrlToRoute } from '../../../../../helpers/formatUrl';
 
+import placeholderImg from '../../../../../public/img/img.svg';
 import { CollectionItemStyles } from './CollectionItemStyles';
 
 export default function CollectionItem({ item, items, collection }) {
@@ -31,8 +32,12 @@ export default function CollectionItem({ item, items, collection }) {
             width={200}
             height={200}
             alt={item.item_title}
+            placeholder='blur'
+            blurDataURL={placeholderImg}
           />
-          <h4 className='collection-item-title'>{item.itemTitle}</h4>
+          <h4 className='collection-item-title'>
+            {item.itemTitle}
+          </h4>
         </a>
       </Link>
     </CollectionItemStyles>

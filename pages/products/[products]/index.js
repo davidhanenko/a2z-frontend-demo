@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 
 import { formatUrlToDbName } from '../../../helpers/formatUrl';
 
-import Loader from '../../../components/shared/loader/Loader';
+import Loader from '../../../components/shared/loaders/Loader';
 
 import ItemsByCategory from '../../../components/items/items-page/items-by-category/ItemsByCategory';
 
