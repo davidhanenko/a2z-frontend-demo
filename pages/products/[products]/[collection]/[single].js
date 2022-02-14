@@ -35,7 +35,7 @@ export default function ProductsPage({ query }) {
 
   const singleItem = data?.singleItems[0];
 
-  if (loading) return <Loader />;
+  // if (loading) return <Loader />;
   if (error) return <p>Error: {error.message}</p>;
 
   return <SingleItem singleItem={singleItem} />;
