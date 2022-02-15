@@ -54,7 +54,7 @@ export default function Search({ query }) {
   // url for pagination component
   const currentUrl = `search/${term}`;
 
-  if (loading) return <Loader />;
+  // if (loading) return <Loader />;
 
   return (
     <PaginationStateProvider>
