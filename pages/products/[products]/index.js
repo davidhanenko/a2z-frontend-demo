@@ -39,7 +39,7 @@ export default function ProductsCategoryPage({ query }) {
   const items = data?.services[0]?.items[0];
   const service = 'products';
 
-  if (loading) return <Loader />;
+  // if (loading) return <Loader />;
   if (error) return <p>Error: {error.message}</p>;
 
   return <ItemsByCategory items={items} service={service} />;
