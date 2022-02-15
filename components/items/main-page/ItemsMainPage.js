@@ -4,7 +4,6 @@ import { useQuery } from '@apollo/client';
 import ItemsSlider from '../../shared/sliders/items-slider/ItemsSlider';
 import { ItemsMainPageStyles } from './ItemsMainPageStyles';
 import Loader from '../../shared/loaders/Loader';
-import ImgPlaceholder from '../../shared/loaders/img-palaceholder/ImgPlaceholder';
 
 const PRODUCTS_MAIN_PAGE_QUERY = gql`
   query PRODUCTS_MAIN_PAGE_QUERY($service: String) {
