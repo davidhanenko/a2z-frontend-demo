@@ -137,8 +137,9 @@ export default function ItemsMenu({}) {
         <div className='side-menu-links' ref={sideMenuRef}>
           {menuItems?.map(menuItem => (
             <MenuLink
-              menuItem={menuItem}
               key={menuItem.id}
+              menuItem={menuItem}
+              service={service}
               onClick={() => {
                 setMenuOpen(false);
               }}

@@ -27,11 +27,14 @@ const SINGLE_ITEM_QUERY = gql`
 `;
 
 export default function ProductsPage({ query }) {
-  const { data, error, loading } = useQuery(SINGLE_ITEM_QUERY, {
-    variables: {
-      item: formatUrlToDbName(query.single),
-    },
-  });
+  const { data, error, loading } = useQuery(
+    SINGLE_ITEM_QUERY,
+    {
+      variables: {
+        item: formatUrlToDbName(query.single),
+      },
+    }
+  );
 
   const singleItem = data?.singleItems[0];
 
