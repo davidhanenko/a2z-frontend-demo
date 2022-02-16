@@ -1,11 +1,12 @@
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/client';
 
-import SubCategoryCollection from '../../../../components/items/items-page/sub-category-collection/SubCategoryCollection';
 import { formatUrlToDbName } from '../../../../helpers/formatUrl';
+
+import SubCategoryCollection from '../../../../components/items/items-page/sub-category-collection/SubCategoryCollection';
 import { PaginationStateProvider } from '../../../../context/paginationState';
 import Pagination from '../../../../components/shared/pagination/Pagination';
-import Loader from '../../../../components/shared/loaders/Loader';
+import LoaderContainer from '../../../../components/shared/loaders/loader-container/LoaderContainer';
 
 const PAGINATION_QUERY = gql`
   query PAGINATION_QUERY($collection: String!) {
@@ -42,16 +43,19 @@ export default function ProductsPage({ query }) {
   // current page
   const page = parseInt(query.page);
 
-    // if (loading) return <Loader />;
-    if (error) return <p>Error: {error.message}</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
   return (
     <PaginationStateProvider>
-      <Pagination
-        page={page || 1}
-        currentUrl={currentUrl}
-        itemsCount={itemsCount}
-      />
+      {!loading ? (
+        <Pagination
+          page={page || 1}
+          currentUrl={currentUrl}
+          itemsCount={itemsCount}
+        />
+      ) : (
+        <LoaderContainer />
+      )}
       <SubCategoryCollection
         service={service}
         items={items}
