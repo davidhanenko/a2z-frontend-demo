@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 
 import { formatUrlToDbName } from '../../../../helpers/formatUrl';
 import SingleItem from '../../../../components/items/items-page/single-item/SingleItem';
-import Loader from '../../../../components/shared/loaders/Loader';
+import LoaderContainer from '../../../../components/shared/loaders/loader-container/LoaderContainer';
 
 const SINGLE_ITEM_QUERY = gql`
   query SINGLE_ITEM_QUERY($item: String!) {
@@ -38,7 +38,7 @@ export default function ProductsPage({ query }) {
 
   const singleItem = data?.singleItems[0];
 
-  // if (loading) return <Loader />;
+  if (loading) return <LoaderContainer height={'40rem'} />;
   if (error) return <p>Error: {error.message}</p>;
 
   return <SingleItem singleItem={singleItem} />;

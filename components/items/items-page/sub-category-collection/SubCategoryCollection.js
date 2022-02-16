@@ -9,7 +9,8 @@ import { formatUrlToDbName } from '../../../../helpers/formatUrl';
 
 import { SubCategoryCollectionStyles } from './SubCategoryCollectionStyles';
 import CollectionItem from './collection-item/CollectionItem';
-import Loader from '../../../shared/loaders/Loader';
+
+import LoaderContainer from '../../../shared/loaders/loader-container/LoaderContainer';
 
 const ITEMS_SUBCATEGORY_COLLECTION_QUERY = gql`
   query ITEMS_SUBCATEGORY_COLLECTION_QUERY(
@@ -62,7 +63,7 @@ export default function SubCategoryCollection({
   // subcategory collection data
   const subCategoryCollection = data?.itemsCategory[0];
 
-  if (loading) return <Loader />;
+  if (loading) return <LoaderContainer height={'30rem'} />;
   if (error) return <p>Error: {error.message}</p>;
 
   return (
