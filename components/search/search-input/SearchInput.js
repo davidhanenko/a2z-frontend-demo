@@ -16,7 +16,7 @@ const SEARCH_QUERY = gql`
           { item_title_contains: $searchTerm }
           { description_contains: $searchTerm }
         ]
-      } 
+      }
     ) {
       category: items_categories(limit: 1) {
         categoryTitle: category_title
@@ -67,9 +67,7 @@ export default function SearchInput() {
 
   const itemsToRender = foundItems.slice(0, 5);
 
-
   if (error) console.log('error');
-
 
   return (
     <>

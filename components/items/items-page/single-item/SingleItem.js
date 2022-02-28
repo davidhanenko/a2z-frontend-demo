@@ -15,12 +15,12 @@ export default function SingleItem({ singleItem }) {
   ]);
   const [index, setIndex] = useState(0);
 
-  // sort by prices, to show list of availiable sizes of item
+  // sort by prices, to show list of available sizes of item
   sizePrice.sort((a, b) => a.price - b.price);
 
   // show price according to size of item(if apply)
   const handlePrice = e => {
-    // find index of choosen size
+    // find index of chosen size
     let sizeIndex = sizePrice.findIndex(
       el => el.size == e.target.value
     );
