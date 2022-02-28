@@ -39,7 +39,11 @@ export const PER_PAGE_OPTIONS = [
     title: '6',
     option: 6,
   },
-]
+  {
+    title: '8',
+    option: 8,
+  },
+];
 
 // demo backend url
 // https://backend-a2z.herokuapp.com/graphql

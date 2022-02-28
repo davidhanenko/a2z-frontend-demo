@@ -1,13 +1,11 @@
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/client';
-import Link from 'next/link';
 import Image from 'next/image';
-
 
 import { usePagination } from '../../../context/paginationState';
 
 import placeholderImg from '../../../public/img/img.svg';
-import Loader from '../../shared/loaders/Loader';
+import LoaderContainer from '../../shared/loaders/loader-container/LoaderContainer';
 import {
   AllSearchResultsStyles,
   FoundItemStyles,
@@ -53,10 +51,7 @@ const SEARCH_QUERY = gql`
 `;
 
 // search results component
-export default function AllSearchResults({
-  term,
-  page,
-}) {
+export default function AllSearchResults({ term, page }) {
   const { itemsPerPage, sortItemsBy } = usePagination();
 
   const { data, loading, error } = useQuery(SEARCH_QUERY, {
@@ -70,7 +65,7 @@ export default function AllSearchResults({
 
   const foundItems = data?.singleItems || [];
 
-  if (loading) return <Loader />;
+  if (loading) return <LoaderContainer height={'30rem'} />;
   if (error) return <p>Error: {error.message}</p>;
 
   return (

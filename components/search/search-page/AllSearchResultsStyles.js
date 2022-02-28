@@ -1,11 +1,21 @@
 import styled from 'styled-components';
 
 const SearchResultsContainerStyles = styled.div`
-
   max-width: var(--maxWidth);
   padding: 5rem;
   @media (max-width: 500px) {
     padding: 0 3rem;
+  }
+
+  h1 {
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 5rem;
+  }
+  span {
+    font-style: italic;
+    font-weight: 700;
+    color: var(--blue);
   }
 `;
 
