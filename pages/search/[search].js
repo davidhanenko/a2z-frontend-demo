@@ -28,13 +28,13 @@ const SEARCH_PAGINATION_QUERY = gql`
   }
 `;
 
-
+// styles fot the pagination component on search page
 const PaginationStyles = styled.div`
   margin-top: calc(var(--navHeight) + var(--searchHeight) + 5rem);
 `;
 
 export default function Search({ query }) {
-  // curretnt page
+  // current page
   const page = parseInt(query.page);
   // search term
   const term = query.search;
@@ -48,8 +48,9 @@ export default function Search({ query }) {
     }
   );
 
-// count of found items 
+  // count of found items
   const itemsCount = data?.singleItems?.length;
+
 
   // url for pagination component
   const currentUrl = `search/${term}`;
@@ -65,10 +66,7 @@ export default function Search({ query }) {
           itemsCount={itemsCount}
         />
       </PaginationStyles>
-      <AllSearchResults
-        term={term}
-        page={page || 1}
-      />
+      <AllSearchResults term={term} page={page || 1} />
     </PaginationStateProvider>
   );
 }

@@ -1,9 +1,7 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { useEffect } from 'react/cjs/react.development';
 
 import { formatUrlToDbName } from '../../helpers/formatUrl';
-import { useMenu } from '../../context/menuState';
 
 import { MenuTreeStyles, TreeNodeStyles } from './MenuTreeStyles';
 
