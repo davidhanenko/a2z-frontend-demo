@@ -76,16 +76,16 @@ export default function AllSearchResults({ term, page }) {
 
       <AllSearchResultsStyles>
         {foundItems.map(item => (
-          <FoundItemStyles key={item.id}>
+          <FoundItemStyles key={item?.id}>
             <Image
               src={item?.image[0]?.url}
-              alt={item.itemTitle}
+              alt={item?.itemTitle}
               width={200}
               height={200}
               placeholder='blur'
               blurDataURL={placeholderImg}
             />
-            <h3>{item.itemTitle}</h3>
+            <h3>{item?.itemTitle}</h3>
             <p>from...</p>
           </FoundItemStyles>
         ))}

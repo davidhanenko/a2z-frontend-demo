@@ -7,18 +7,27 @@ import { PER_PAGE_OPTIONS } from '../../../config';
 import DropdownSelect from './dropdown/DropdownSelect';
 import { ItemsPerPageSelectStyles } from './PaginationStyles';
 
-export default function ItemsPerPageSelect({}) {
+export default function ItemsPerPageSelect({ page }) {
   const { itemsPerPage, setItemsPerPage } = usePagination();
 
   const router = useRouter();
+  // current url
+  const currentUrl =
+    page === 1
+      ? router.asPath
+      : router.asPath.split('?').slice(0, -1).join('');
 
+  // select amount of items shown on page
   const handleSelect = e => {
     setItemsPerPage(parseInt(e.target.value));
+
     // set items amount to local storage
     localStorage.setItem('showPerPage', e.target.value);
-    // switch the page to 1st when change amount of items showed on page
-   
-    // router.push(`?page=1`);
+
+    // switch the page to 1st when change amount of items showed on page and page !== 1
+    if (page !== 1) {
+      router.push(`${currentUrl}?page=1`);
+    }
   };
 
   return (
