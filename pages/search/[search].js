@@ -55,7 +55,9 @@ export default function Search({ query }) {
   // url for pagination component
   const currentUrl = `search/${term}`;
 
-  // if (loading) return <Loader />;
+  if (loading) return <Loader />;
+  if (error) return <p>Error: {error.message}</p>;
+
 
   return (
     <PaginationStateProvider>
@@ -71,6 +73,7 @@ export default function Search({ query }) {
   );
 }
 
+// set layout MAIN for this page
 export async function getServerSideProps(props) {
   let layout = 'main';
 

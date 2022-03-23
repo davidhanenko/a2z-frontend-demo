@@ -13,7 +13,7 @@ export default function Pagination({
   return (
     <PaginationContainerStyles>
       <div>
-        <ItemsPerPageSelect currentUrl={currentUrl}/>
+        <ItemsPerPageSelect page={page}/>
         <ItemsSortSelect />
       </div>
       <PagesControl
