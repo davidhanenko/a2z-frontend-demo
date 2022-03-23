@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const CollectionItemStyles = styled.div`
-  background: #ced8ec;
-  padding: 2rem;
+  background: var(--lightGray);
+  padding: 2rem 3rem;
   text-align: center;
 
   a {
@@ -11,8 +11,10 @@ const CollectionItemStyles = styled.div`
 
   .collection-item-title {
     text-transform: uppercase;
-    color: blue;
+    color: var(--darkBlue);
     font-weight: 300;
+    font-size: 1.7rem;
+    margin: 0;
   }
 `;
 

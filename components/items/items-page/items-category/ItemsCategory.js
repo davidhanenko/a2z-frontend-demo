@@ -3,9 +3,7 @@ import Head from 'next/head';
 import capitalizeStr from '../../../../helpers/capitalizeStr';
 
 import ItemsSubCategory from '../items-sub-category/ItemsSubCategory';
-import {
-  ItemsCategoryStyles,
-} from './ItemsCategoryStyles';
+import { ItemsCategoryStyles } from './ItemsCategoryStyles';
 
 export default function ItemsCategory({ items, service }) {
   const title = items?.title;
@@ -16,7 +14,7 @@ export default function ItemsCategory({ items, service }) {
         <title>{capitalizeStr(title)} - A2Z</title>
       </Head>
 
-      <h3>{title}</h3>
+      <h3 className='items-category-title'>{title}</h3>
       <div className='category-container'>
         {items.category.map(subCategory => (
           <ItemsSubCategory

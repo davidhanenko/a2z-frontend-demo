@@ -1,20 +1,18 @@
- import styled from 'styled-components';
+import styled from 'styled-components';
 
 const ItemsSubCategoryStyles = styled.div`
-/* change bg */
-  background: white;
-  padding: 2rem;
+  background: var(--lightGray);
+  padding: 2rem 3rem;
   text-align: center;
   @media (max-width: 850px) {
   }
-  h4 {
-    color: black;
-    font-weight: 100;
-    font-size: 1.5rem;
+  .subcategory-title {
+    color: var(--darkBlue);
+    font-weight: 300;
+    font-size: 1.8rem;
     text-transform: uppercase;
+    margin: 0 0 1.5rem 0;
   }
 `;
 
-
-
-export { ItemsSubCategoryStyles};
+export { ItemsSubCategoryStyles };
