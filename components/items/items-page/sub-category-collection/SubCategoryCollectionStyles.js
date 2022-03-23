@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
 const SubCategoryCollectionStyles = styled.div`
-  padding: 10rem 5rem;
+  padding: 5rem 5rem;
 
   .collection-title {
     text-transform: uppercase;
+    color: var(--dark);
+    font-size: 3rem;
+    font-weight: 400;
   }
 
   .collection-container {

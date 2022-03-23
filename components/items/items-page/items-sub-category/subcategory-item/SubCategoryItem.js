@@ -4,9 +4,13 @@ import Link from 'next/link';
 import { formatUrlToRoute } from '../../../../../helpers/formatUrl';
 
 import { SubCategoryItemStyles } from './SubCategoryItemStyles';
-import placeholderImg from '../../../../../public/img/1.png'
+import placeholderImg from '../../../../../public/img/1.png';
 
-export default function SubCategoryListItem({ subCategory, itemsTitle, service }) {
+export default function SubCategoryListItem({
+  subCategory,
+  itemsTitle,
+  service,
+}) {
   return (
     <SubCategoryItemStyles>
       <Link
@@ -21,6 +25,9 @@ export default function SubCategoryListItem({ subCategory, itemsTitle, service }
         }}
       >
         <a>
+          <h4 className='subcategory-title'>
+            {subCategory.category_title}
+          </h4>
           <Image
             className='sub-image'
             src={subCategory.single_item[0].image[0].url}

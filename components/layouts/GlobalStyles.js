@@ -14,7 +14,6 @@ const GlobalStyles = createGlobalStyle`
 
     --redBrick: #cb4154;
   
-    
     --blueHover: #536ade60;
     --darkBlueHover: #3c457d90;
     --lightBlueHover: #b5dff050;
