@@ -44,7 +44,13 @@ export default function ItemsMainPage({ service }) {
     ];
 
   if (error) return <p>Error: {error.message}</p>;
-  if (loading) return <LoaderContainer height={'10rem'} />;
+
+  return (
+    <ItemsMainPageStyles>
+      {' '}
+      <LoaderContainer height={'10rem'} />
+    </ItemsMainPageStyles>
+  );
 
   return (
     <>
