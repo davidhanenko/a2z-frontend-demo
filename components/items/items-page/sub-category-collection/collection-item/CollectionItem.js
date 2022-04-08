@@ -7,8 +7,11 @@ import { formatUrlToRoute } from '../../../../../helpers/formatUrl';
 import placeholderImg from '../../../../../public/img/img.svg';
 import { CollectionItemStyles } from './CollectionItemStyles';
 
-export default function CollectionItem({ item, items, collection }) {
-
+export default function CollectionItem({
+  item,
+  items,
+  collection,
+}) {
   const router = useRouter();
   // current service
   const service = router.asPath.split('/')[1];
@@ -19,9 +22,9 @@ export default function CollectionItem({ item, items, collection }) {
         href={{
           pathname: `/[service]/[items]/[collection]/[single]`,
           query: {
-            service: `${service}`,
-            items: `${items}`,
-            collection: `${collection}`,
+            service: `${formatUrlToRoute(service)}`,
+            items: `${formatUrlToRoute(items)}`,
+            collection: `${formatUrlToRoute(collection)}`,
             single: `${formatUrlToRoute(item.itemTitle)}`,
           },
         }}
