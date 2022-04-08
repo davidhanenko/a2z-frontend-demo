@@ -11,7 +11,16 @@ const FoundItemStyles = styled.div`
   p {
     font-weight: 100;
   }
+
+  .item-img {
+    transition: all 0.3s;
+  }
+
+  &:hover {
+    .item-img {
+      transform: scale(0.9);
+    }
+  }
 `;
 
-export {FoundItemStyles}
-
+export { FoundItemStyles };

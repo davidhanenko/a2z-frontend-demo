@@ -36,6 +36,7 @@ export default function FoundItem({ item }) {
       >
         <a>
           <Image
+            className='item-img'
             src={item?.image[0]?.url}
             alt={item?.itemTitle}
             width={200}

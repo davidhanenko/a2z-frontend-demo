@@ -31,6 +31,7 @@ export default function CollectionItem({
       >
         <a>
           <Image
+            className='item-img'
             src={item.image[0].url}
             width={200}
             height={200}
