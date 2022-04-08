@@ -16,6 +16,16 @@ const CollectionItemStyles = styled.div`
     font-size: 1.7rem;
     margin: 0;
   }
+
+  .item-img {
+    transition: all 0.3s;
+  }
+
+  &:hover {
+    .item-img {
+      transform: scale(0.9);
+    }
+  }
 `;
 
 export { CollectionItemStyles };

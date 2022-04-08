@@ -1,14 +1,11 @@
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/client';
-import Image from 'next/image';
 
 import { usePagination } from '../../../context/paginationState';
-
-import placeholderImg from '../../../public/img/img.svg';
 import LoaderContainer from '../../shared/loaders/loader-container/LoaderContainer';
+import FoundItem from './found-item/FoundItem';
 import {
   AllSearchResultsStyles,
-  FoundItemStyles,
   SearchResultsContainerStyles,
 } from './AllSearchResultsStyles';
 
@@ -76,18 +73,7 @@ export default function AllSearchResults({ term, page }) {
 
       <AllSearchResultsStyles>
         {foundItems.map(item => (
-          <FoundItemStyles key={item?.id}>
-            <Image
-              src={item?.image[0]?.url}
-              alt={item?.itemTitle}
-              width={200}
-              height={200}
-              placeholder='blur'
-              blurDataURL={placeholderImg}
-            />
-            <h3>{item?.itemTitle}</h3>
-            <p>from...</p>
-          </FoundItemStyles>
+          <FoundItem key={item?.id} item={item} />
         ))}
       </AllSearchResultsStyles>
     </SearchResultsContainerStyles>

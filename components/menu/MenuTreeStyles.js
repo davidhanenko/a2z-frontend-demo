@@ -16,7 +16,7 @@ const TreeNodeStyles = styled.li`
     text-decoration: none;
     transition: all 0.25s;
     &:hover {
-      color: var(--lightBlue);
+      color: var(--gray);
     }
   }
   &:last-of-type {
