@@ -19,6 +19,8 @@ export default function SearchDropdown({
   foundItemsCount,
   loading,
 }) {
+
+       
   // close search dropdown / clear input
   const handleClose = () => {
     return setTerm('');
@@ -33,18 +35,17 @@ export default function SearchDropdown({
           ref={ref}
           onClick={handleClose}
         >
-          <p>
-            See all search results
-          </p>
+          <p>See all search results</p>
         </AllResultsStyles>
       );
     }
   );
 
 
+
   return (
     <SearchDropdownStyles>
-      {foundItems &&
+      {foundItems && !loading &&
         foundItems.map(item => (
           <Link
             key={item.id}
@@ -65,14 +66,14 @@ export default function SearchDropdown({
                 collection: `${formatUrlToRoute(
                   item?.category[0]?.categoryTitle
                 )}`,
-                // single item/finded item
+                // single item/found item
                 singleItem: `${formatUrlToRoute(
                   item?.itemTitle
                 )}`,
               },
             }}
           >
-            <DropdownItemStyles>
+            <DropdownItemStyles tabindex='0'>
               <Image
                 src={item?.image[0]?.url}
                 alt={item?.itemTitle}
@@ -83,7 +84,9 @@ export default function SearchDropdown({
             </DropdownItemStyles>
           </Link>
         ))}
-      <p className="found-items">{foundItemsCount} item(s) found</p>
+      <p className='found-items'>
+        {foundItemsCount} item(s) found
+      </p>
       {!loading && foundItemsCount !== 0 ? (
         <Link
           href={{

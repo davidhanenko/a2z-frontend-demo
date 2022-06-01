@@ -5,13 +5,13 @@ import { useQuery } from '@apollo/client';
 import Link from 'next/link';
 import Hamburger from 'hamburger-react';
 
-import { useNav } from '../../context/navState';
-import useWindowDimensions from '../../lib/windowDimensions';
+import useWindowDimensions from '../../../../../lib/windowDimensions';
+import { useNav } from '../../../../../context/navState';
 
 import NavDropdown from './NavDropdown';
 import { NavStyles, NavButtonStyles } from './NavStyles';
-import { TOGGLE_WIDTH } from '../../config';
-import Search from '../search/Search';
+import { TOGGLE_WIDTH } from '../../../../../config';
+import Search from '../../../../search/Search';
 
 const PRODUCTS_QUERY = gql`
   query PRODUCTS_QUERY {
@@ -113,7 +113,6 @@ export default function Nav() {
   );
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
 
   return (
     <>
@@ -127,27 +126,25 @@ export default function Nav() {
           <Link href='/' passHref>
             <LinkBtn title={'home'} page={''} />
           </Link>
-          <Link href='/about' passHref>
+          {/* <Link href='/about' passHref>
             <LinkBtn title={'about'} page={'about'} />
-          </Link>
+          </Link> */}
 
           {/* items dropdown */}
-          {services.map(service => (
-            <Link
-              key={service.id}
-              href={`/${service.service}`}
-              passHref
-            >
-              <NavDropdown
-                title={service.service}
-                items={service.items}
-              />
-            </Link>
-          ))}
+          {services &&
+            services.map(service => (
+              <Link
+                key={service.id}
+                href={`/${service.service}`}
+                passHref
+              >
+                <NavDropdown
+                  title={service.service}
+                  items={service.items}
+                />
+              </Link>
+            ))}
 
-          <Link href='/gallery' passHref>
-            <LinkBtn title={'gallery'} page={'gallery'} />
-          </Link>
           <Link href='/contacts' passHref>
             <LinkBtn title={'contacts'} page={'contacts'} />
           </Link>

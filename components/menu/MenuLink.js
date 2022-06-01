@@ -20,6 +20,7 @@ export default function MenuLink({ service, menuItem }) {
         <MenuDropdown
           dropDownMenuitem={menuItem.title}
           categories={menuItem.items_categories}
+          service={service}
         />
       </Link>
     </MenuLinkStyles>

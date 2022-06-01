@@ -19,7 +19,7 @@ const ItemsPerPageSelectStyles = styled.div`
      text-transform: capitalize;
      color: var(--gray);
    }
-  }
+
 `;
 
 const ItemsSortSelectStyles = styled.div`
@@ -30,23 +30,23 @@ const ItemsSortSelectStyles = styled.div`
 const PagesControlStyles = styled.div`
   display: inline;
   margin-right: 2rem;
-  @media(max-width: 850px) {
+
+  @media (max-width: 850px) {
     display: flex;
     justify-content: end;
   }
- 
 
   a {
     margin: 1rem;
-    color: gray;
+    color: var(--dark);
     border-radius: 5px;
     transition: color 0.25s;
     &:hover {
-      color: var(--dark);
+      color: var(--gray);
     }
   }
   a[aria-disabled='true'] {
-    color: var(--dark);
+    color: var(--gray);
     cursor: not-allowed;
     pointer-events: none;
   }

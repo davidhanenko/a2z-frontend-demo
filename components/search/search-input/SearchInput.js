@@ -40,13 +40,17 @@ const SEARCH_QUERY = gql`
 
 export default function SearchInput() {
   const [term, setTerm] = useState('');
+  const [foundItems, setFoundItems] = useState([]);
+
   const router = useRouter();
 
-  const [findItems, { data, loading, error }] =
-    useLazyQuery(SEARCH_QUERY, {
+  const [findItems, { data, loading }] = useLazyQuery(
+    SEARCH_QUERY,
+    {
       fetchPolicy: 'no-cache',
       ssr: false,
-    });
+    }
+  );
 
   const findItemsButChill = debounce(findItems, 350);
 
@@ -66,6 +70,10 @@ export default function SearchInput() {
     }
   };
 
+  const foundItemsCount = foundItems?.length;
+
+  const itemsToRender = foundItems?.slice(0, 5);
+
   // set new value to search query on each input term change
   useEffect(() => {
     findItemsButChill({
@@ -73,15 +81,8 @@ export default function SearchInput() {
         searchTerm: term,
       },
     });
+    setFoundItems(data?.singleItems);
   }, [term]);
-
-  const foundItems = data?.singleItems || [];
-
-  const foundItemsCount = foundItems.length;
-
-  const itemsToRender = foundItems.slice(0, 5);
-
-  if (error) console.log('error');
 
   return (
     <>

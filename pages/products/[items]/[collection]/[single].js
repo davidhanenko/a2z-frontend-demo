@@ -1,11 +1,14 @@
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/client';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { formatUrlToDbName } from '../../../../helpers/formatUrl';
 import SingleItem from '../../../../components/items/items-page/single-item/SingleItem';
 import LoaderContainer from '../../../../components/shared/loaders/loader-container/LoaderContainer';
 
-const SINGLE_ITEM_QUERY = gql`
+export const SINGLE_ITEM_QUERY = gql`
   query SINGLE_ITEM_QUERY($item: String!) {
     singleItems(where: { item_title: $item }) {
       id
@@ -26,7 +29,7 @@ const SINGLE_ITEM_QUERY = gql`
   }
 `;
 
-export default function ProductsPage({ query }) {
+export default function SingleProductPage({ query }) {
   const { data, error, loading } = useQuery(
     SINGLE_ITEM_QUERY,
     {
@@ -39,7 +42,12 @@ export default function ProductsPage({ query }) {
   const singleItem = data?.singleItems[0];
 
   if (loading) return <LoaderContainer height={'40rem'} />;
-  if (error) return <p>Error: {error.message}</p>;
+
+   if (error) {
+     toast.error(
+       'An unexpected while loading the page, please try again'
+     );
+   }
 
   return <SingleItem singleItem={singleItem} />;
 }

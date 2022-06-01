@@ -19,7 +19,7 @@ const ItemsMenuStyles = styled.div`
     font-size: 3.5rem;
     text-transform: uppercase;
     font-weight: 400;
-    color: darkblue;
+    color: var(--darkBlue);
     margin: 0;
     transition: transform 0.35s;
     @media (max-width: 850px) {

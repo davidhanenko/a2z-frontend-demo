@@ -19,7 +19,7 @@ const ItemsCategoryStyles = styled.div`
     justify-content: center;
     grid-template-columns: repeat(
       auto-fill,
-      minmax(200px, 1fr)
+      minmax(250px, 1fr)
     );
     @media (max-width: 500px) {
       grid-template-columns: repeat(

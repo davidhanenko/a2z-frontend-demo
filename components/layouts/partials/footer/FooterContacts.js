@@ -2,10 +2,12 @@ import gql from 'graphql-tag';
 import { useQuery } from '@apollo/client';
 
 import { FooterContactsStyles } from './FooterStyles';
+import LoaderContainer from '../../../shared/loaders/loader-container/LoaderContainer';
 
 const CONTACTS_QUERY = gql`
   query CONTACTS_QUERY {
     contact {
+      id
       phone1: telephone_1
       addressLine1: address_line1
       addressLine2: address_line2
@@ -17,13 +19,16 @@ const CONTACTS_QUERY = gql`
 
 export default function FooterContacts() {
 
-  const { data, error, loading } = useQuery(CONTACTS_QUERY);
+  const { data, loading } = useQuery(CONTACTS_QUERY);
 
 
-  if (error) return <p>Error: {error.message}</p>;
-  if (loading) return <p>Loading...</p>;
-
-  
+if (loading)
+  return (
+    <FooterContactsStyles>
+      {' '}
+      <LoaderContainer height={'5rem'} />;
+    </FooterContactsStyles>
+  );
 
   return (
     <FooterContactsStyles>

@@ -36,7 +36,10 @@ const DropdownItem = React.forwardRef(
   }
 );
 
-const MenuDropdown = React.forwardRef(function MenuDropdown(props, ref) {
+const MenuDropdown = React.forwardRef(function MenuDropdown(
+  props,
+  ref
+) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const { isMenuOpen } = useMenu();
@@ -102,8 +105,11 @@ const MenuDropdown = React.forwardRef(function MenuDropdown(props, ref) {
         {props?.categories?.map(category => (
           <Link
             href={{
-              pathname: '/products/[items]/[collection]',
+              pathname: '/[service]/[items]/[collection]',
               query: {
+                service: `${formatUrlToRoute(
+                  props.service
+                )}`,
                 items: `${formatUrlToRoute(
                   props.dropDownMenuitem
                 )}`,

@@ -8,16 +8,16 @@ const MenuLinkStyles = styled.div`
   }
   .link-title {
     margin-top: 0;
-    color: white;
+    color: var(--dark);
     text-transform: uppercase;
-    font-weight: 300;
+    font-weight: 400;
     transition: all 0.3s;
   }
   &:hover .link-title {
-    color: blue;
+    color: var(--darkBlueHover);
   }
   .active {
-    color: blue;
+    color: var(--darkBlueHover);
   }
 `;
 

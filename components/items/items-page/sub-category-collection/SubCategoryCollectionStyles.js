@@ -14,7 +14,7 @@ const SubCategoryCollectionStyles = styled.div`
     display: grid;
     grid-gap: 2rem;
     justify-content: center;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     @media (max-width: 500px) {
       grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
     }
