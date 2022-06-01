@@ -15,7 +15,7 @@ export default function GoToTop() {
 
   useEffect(() => {
     const toggleBtnVisibility = () => {
-      window.pageYOffset > 200 ? setIsVisible(true) : setIsVisible(false);
+      window.pageYOffset >  200 ? setIsVisible(true) : setIsVisible(false);
     };
 
     window.addEventListener('scroll', toggleBtnVisibility);

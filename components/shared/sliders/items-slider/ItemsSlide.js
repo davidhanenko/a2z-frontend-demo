@@ -2,12 +2,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { formatUrlToRoute } from '../../../../helpers/formatUrl';
 
-import { ItemsSlideStyles, ImageOverlay } from './ItemsSlideStyles';
+import {
+  ItemsSlideStyles,
+  ImageOverlay,
+} from './ItemsSlideStyles';
 
-import placeholderImg from '../../../../public/img/img.svg'
+import placeholderImg from '../../../../public/img/img.svg';
 
-export default function Slide({ itemsByIndex, index, service }) {
-
+export default function Slide({
+  itemsByIndex,
+  index,
+  service,
+}) {
   return (
     <ItemsSlideStyles>
       <Link
@@ -28,18 +34,21 @@ export default function Slide({ itemsByIndex, index, service }) {
             </h3>
 
             <ImageOverlay />
-            <Image
-              className='embla__slide__img item-image'
-              src={
-                itemsByIndex(index)?.category[0]
-                  ?.single_item[0]?.image[0].url
-              }
-              width={300}
-              height={300}
-              layout='responsive'
-              placeholder='blur'
-              blurDataURL={placeholderImg}
-            />
+            {itemsByIndex(index)?.category[0]
+              ?.single_item[0]?.image[0].url && (
+              <Image
+                className='embla__slide__img item-image'
+                src={
+                  itemsByIndex(index)?.category[0]
+                    ?.single_item[0]?.image[0].url
+                }
+                width={300}
+                height={300}
+                layout='responsive'
+                placeholder='blur'
+                blurDataURL={placeholderImg}
+              />
+            )}
           </div>
         </a>
       </Link>

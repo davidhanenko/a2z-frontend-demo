@@ -8,19 +8,23 @@ const SearchDropdownStyles = styled.ul`
   padding-left: 0;
   padding-bottom: 10rem;
   min-width: 25rem;
+  max-width: 45rem;
+  overflow-wrap: break-word;
   background: var(--lightGray);
 
-  .found-items {
-    font-weight: 100;
-    font-size: 1.2rem;
-    padding-left: 1rem;
-  }
 
   .no-items {
+    padding: 0 1rem;
     color: var(--gray);
     em {
       color: var(--dark);
     }
+  }
+
+  .found-items {
+    font-weight: 300;
+    font-size: 1.2rem;
+    padding-left: 1rem;
   }
 `;
 
@@ -77,7 +81,7 @@ const CloseBtnStyles = styled.button`
     width: 100%;
     height: 100%;
     padding: 0.2rem;
-    -webkit-transition: transform 0.35s;
+    transition: transform 0.35s;
     &:hover {
       transform: rotate(90deg) scale(1.4);
     }

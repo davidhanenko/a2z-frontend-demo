@@ -4,10 +4,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { MdExpandMore, MdExpandLess } from 'react-icons/md';
 
-import { useNav } from '../../context/navState';
-import useWindowDimensions from '../../lib/windowDimensions';
-import { formatUrlToRoute } from '../../helpers/formatUrl';
-import { TOGGLE_WIDTH } from '../../config';
+import { useNav } from '../../../../../context/navState';
+import useWindowDimensions from '../../../../../lib/windowDimensions';
+import { formatUrlToRoute } from '../../../../../helpers/formatUrl';
+import { TOGGLE_WIDTH } from '../../../../../config';
 
 import {
   DropdownBtnStyles,
@@ -35,12 +35,14 @@ const DropdownItem = React.forwardRef(
           ref={ref}
         >
           <div className='item-title-img'>
-            <Image
-              src={imgUrl}
-              alt={title}
-              width={25}
-              height={25}
-            />
+            {imgUrl && (
+              <Image
+                src={imgUrl}
+                alt={title}
+                width={25}
+                height={25}
+              />
+            )}
             <p>{title}</p>
           </div>
         </a>
@@ -126,7 +128,10 @@ const NavDropdown = React.forwardRef(function NavDropdown(
               key={item.id}
               passHref
             >
-              <DropdownItem dropdownItem={item} />
+              <DropdownItem
+                tabindex='0'
+                dropdownItem={item}
+              />
             </Link>
           ))}
         </DropdownMenuStyles>

@@ -11,7 +11,7 @@ export default function ItemsCategory({ items, service }) {
   return (
     <ItemsCategoryStyles>
       <Head>
-        <title>{capitalizeStr(title)} - A2Z</title>
+        <title>{capitalizeStr(title)} | A2Z</title>
       </Head>
 
       <h3 className='items-category-title'>{title}</h3>

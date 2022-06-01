@@ -1,5 +1,7 @@
-import gql from 'graphql-tag';
 import { useQuery } from '@apollo/client';
+
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { formatUrlToDbName } from '../../../../helpers/formatUrl';
 
@@ -7,20 +9,9 @@ import SubCategoryCollection from '../../../../components/items/items-page/sub-c
 import { PaginationStateProvider } from '../../../../context/paginationState';
 import Pagination from '../../../../components/shared/pagination/Pagination';
 import LoaderContainer from '../../../../components/shared/loaders/loader-container/LoaderContainer';
+import { PAGINATION_QUERY } from '../../../products/[items]/[collection]';
 
-const PAGINATION_QUERY = gql`
-  query PAGINATION_QUERY($collection: String!) {
-    itemsCategory: itemsCategories(
-      where: { category_title: $collection }
-    ) {
-      singleItems: single_items {
-        id
-      }
-    }
-  }
-`;
-
-export default function ProductsPage({ query }) {
+export default function ToolsCollectionPage({ query }) {
   const { data, error, loading } = useQuery(
     PAGINATION_QUERY,
     {
@@ -29,12 +20,12 @@ export default function ProductsPage({ query }) {
       },
     }
   );
-  const service = 'products';
+  const service = 'tools';
 
   const itemsCount =
     data?.itemsCategory[0]?.singleItems?.length;
 
-  const items = query.products;
+  const items = query.items;
   const collection = query.collection;
 
   // url for pagination component
@@ -43,7 +34,11 @@ export default function ProductsPage({ query }) {
   // current page
   const page = parseInt(query.page);
 
-  if (error) return <p>Error: {error.message}</p>;
+ if (error) {
+   toast.error(
+     'An unexpected while loading the page, please try again'
+   );
+ }
 
   return (
     <PaginationStateProvider>

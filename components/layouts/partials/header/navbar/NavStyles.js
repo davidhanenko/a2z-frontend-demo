@@ -29,7 +29,7 @@ const NavStyles = styled.nav`
       transform: translateX(100%);
       z-index: 2;
       padding-bottom: 2rem;
-      opacity: 0;
+      opacity: 0;9
       ${props =>
         props.open &&
         `grid-auto-flow: row; opacity: 1; transform: translate(0, var(--navHeight)); transition: all 0.35s;`};

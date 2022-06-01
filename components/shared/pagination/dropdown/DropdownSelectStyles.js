@@ -10,9 +10,9 @@ const DropdownSelectStyles = styled.div`
     border: 1px solid gray;
     background: transparent;
     padding: 0.5rem 1rem;
-    color: var(--gray);
+    color: var(--dark);
     svg {
-      color: var(--gray);
+      color: var(--dark);
       transform: scale(1.7);
       margin-left: 2rem;
     }
@@ -31,7 +31,7 @@ const DropdownSelectStyles = styled.div`
     left: 0;
     top: 2.3rem;
     opacity: 0;
-    transition: all 0.35s;
+    transition: all 0.25s;
 
     .sort-opt-btn {
       width: 100%;
@@ -40,7 +40,7 @@ const DropdownSelectStyles = styled.div`
       border: none;
       color: var(--dark);
       background: none;
-      transition: all 0.25s;
+      transition: all 0.15s;
       &:hover {
         background: var(--dark);
         color: var(--offWhite);

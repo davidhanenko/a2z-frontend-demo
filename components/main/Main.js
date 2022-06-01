@@ -19,7 +19,7 @@ import { MainStyles } from './MainStyles';
 const SLIDE_COUNT = 3;
 const slides = Array.from(Array(SLIDE_COUNT).keys());
 
-export default function Main() {
+export default function Main({ services }) {
   const media = [
     {
       bg: bg_2,
@@ -28,7 +28,7 @@ export default function Main() {
       btn: 'view more',
       text1: 'tools, blades & more',
       text2: 'to get it done',
-      link: 'tools',
+      link: '/tools',
     },
     {
       bg: bg_1,
@@ -37,7 +37,7 @@ export default function Main() {
       btn: 'view more',
       text1: 'sinks',
       text2: 'all kinds and sizes',
-      link: '/products',
+      link: '/sinks',
     },
     {
       bg: bg_3,
@@ -58,23 +58,18 @@ export default function Main() {
       <Head>
         <title>A2Z</title>
       </Head>
-      {/* <Parallax y={[-80, 50]}> */}
       <BannerSlider
         slides={slides}
         mediaByIndex={mediaByIndex}
       />
-      {/* </Parallax> */}
-      {/* <Parallax y={[-20, 20]}> */}
-      <ItemsMainPage service={'products'} />
-
-      {/* </Parallax> */}
-      {/* <Parallax y={[0, 0]}>
-        <EmblaCarousel slides={slides} mediaByIndex={mediaByIndex} />
-      </Parallax>
-
-      <Parallax y={[0, 0]}>
-        <EmblaCarousel slides={slides} mediaByIndex={mediaByIndex} />
-      </Parallax> */}
+      {services.map(service => {
+        return (
+          <ItemsMainPage
+            key={service.id}
+            service={service.serviceTitle}
+          />
+        );
+      })}
     </MainStyles>
   );
 }

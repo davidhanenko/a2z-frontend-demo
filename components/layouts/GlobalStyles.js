@@ -1,4 +1,6 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, {
+  createGlobalStyle,
+} from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
 
@@ -11,6 +13,7 @@ const GlobalStyles = createGlobalStyle`
     --gray: #8b8b8b;
     --white: #f5f5f5;
     --offWhite: #ededed;
+
 
     --redBrick: #cb4154;
   
@@ -40,7 +43,6 @@ const GlobalStyles = createGlobalStyle`
     line-height: 2;
     scroll-behavior: smooth;
     background: var(--offWhite);
- 
   }
   a {
     text-decoration: none;

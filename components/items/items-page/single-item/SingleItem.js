@@ -28,10 +28,9 @@ export default function SingleItem({ singleItem }) {
     setIndex(sizeIndex);
   };
 
+  // functions from image slider/carousel
   const SLIDE_COUNT = singleItem.image.length;
-
   const slides = Array.from(Array(SLIDE_COUNT).keys());
-
   const itemsByIndex = index =>
     singleItem.image[index % singleItem.image.length];
 
@@ -73,9 +72,11 @@ export default function SingleItem({ singleItem }) {
           ${sizePrice[index]?.price || singleItem.price}
         </h5>
 
-        <h5 className='available-sizes'>
-          Available sizes:
-        </h5>
+        {sizePrice[index]?.size && (
+            <h5 className='available-sizes'>
+              Available sizes:
+            </h5>
+          )}
 
         {sizePrice.map((size, i) => (
           <input

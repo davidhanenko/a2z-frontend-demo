@@ -40,39 +40,39 @@ const DropdownMenuStyles = styled.ul`
   display: none;
   visibility: hidden;
   ${props =>
-    props.dropdownOpen && `opacity: 1; visibility: visible; display: block;`}
+    props.dropdownOpen &&
+    `opacity: 1; visibility: visible; display: block;`}
   @media (min-width: 850px) {
-    background: #c1e2ec;
-    min-height: 15rem;
+    background: var(--lightBlue);
+    min-height: 20rem;
     position: absolute;
-    width: 50rem;
-    left: 3rem;
-    margin: 0;
-    padding: 2rem;
+    margin-left: -1rem;
+    padding: 2rem 2rem 0 0;
     opacity: 0;
     visibility: hidden;
-    grid-template-columns: 1fr 1fr;
     transition: all 0.35s;
     display: none;
     ${props =>
-      props.dropdownOpen && `display: grid; opacity: 1; visibility: visible; `}
+      props.dropdownOpen &&
+      `display: block; opacity: 1; visibility: visible; `}
   }
 `;
 
 const DropdownItemStyles = styled.li`
   list-style: none;
+  font-weight: 300;
   text-transform: capitalize;
   cursor: pointer;
-  line-height: 0.7rem;
-  padding: 1rem;
+  line-height: 1rem;
+  padding: 1.2rem;
   a {
     text-decoration: none;
-    color: white;
+    color: var(--dark);
     font-size: 1.8rem;
     transition: all 250ms;
     &:hover {
       text-decoration: none;
-      color: var(--black);
+      color: var(--darkBlueHover);
     }
   }
 `;

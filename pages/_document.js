@@ -17,6 +17,8 @@ export default class MyDocument extends Document {
         <Head>
           <meta name='robots' content='noindex, nofollow'></meta>
 
+          <meta name="description" content="..."></meta>
+
           <link rel='preconnect' href='https://fonts.googleapis.com' />
           <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin />
           <link

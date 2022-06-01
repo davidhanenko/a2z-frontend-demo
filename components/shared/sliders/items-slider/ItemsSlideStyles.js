@@ -32,7 +32,7 @@ const ItemsSlideStyles = styled.div`
     font-size: 2.5rem;
     text-transform: uppercase;
     font-weight: 400;
-    color: rgb(6, 6, 192);
+    color: var(--blue);
     z-index: 3;
     transition: transform 0.3s;
     @media (max-width: 500px) {

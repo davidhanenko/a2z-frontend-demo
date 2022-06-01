@@ -43,8 +43,6 @@ export default function ItemsMainPage({ service }) {
       index % data?.services[0]?.items?.length
     ];
 
-  if (error) return <p>Error: {error.message}</p>;
-  
   if (loading)
     return (
       <ItemsMainPageStyles>
@@ -56,7 +54,7 @@ export default function ItemsMainPage({ service }) {
   return (
     <>
       <ItemsMainPageStyles>
-        <h2>Products</h2>
+        <h2>{service}</h2>
 
         {data && (
           <ItemsSlider
